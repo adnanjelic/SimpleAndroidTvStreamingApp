@@ -13,8 +13,10 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "SimpleTvStreamingApp"
+
 include(":app")
 include(":theme")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":feature-home:ui")
