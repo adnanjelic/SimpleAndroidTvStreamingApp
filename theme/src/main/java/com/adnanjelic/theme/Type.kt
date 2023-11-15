@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.ui.theme
+package com.adnanjelic.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

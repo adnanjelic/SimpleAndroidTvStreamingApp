@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.ui.theme
+package com.adnanjelic.theme
 
 import android.os.Build
 import androidx.compose.material3.MaterialTheme
@@ -7,7 +7,6 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import com.adnanjelic.simpletvstreamingapp.R
 
 private val DarkColorScheme
     @Composable get() = darkColorScheme(

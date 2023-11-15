@@ -60,6 +60,9 @@ android {
 
 dependencies {
 
+    // Modules
+    implementation(projects.theme)
+
     // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.collection.ktx)

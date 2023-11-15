@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SimpleTvStreamingApp"
 include(":app")
+include(":theme")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
