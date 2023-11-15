@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -71,7 +71,7 @@ dependencies {
 
     // DI
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     // Compose
     implementation(libs.compose.activity)
@@ -84,12 +84,12 @@ dependencies {
 
     // Storage
     implementation(libs.androidx.room.ktx)
-    
+
     // Networking
     implementation(libs.bundles.retrofit)
     implementation(libs.moshi.kotlin)
 
-    kaptAndroidTest(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
