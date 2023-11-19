@@ -26,6 +26,9 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
+    // Modules
+    implementation(projects.theme)
+
     // DI
     implementation(libs.hilt.android)
 

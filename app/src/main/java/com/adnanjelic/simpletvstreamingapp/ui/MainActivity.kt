@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp
+package com.adnanjelic.simpletvstreamingapp.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
