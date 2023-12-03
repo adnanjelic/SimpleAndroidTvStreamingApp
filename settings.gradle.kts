@@ -20,3 +20,4 @@ rootProject.name = "SimpleTvStreamingApp"
 include(":app")
 include(":theme")
 include(":feature-home:ui")
+include(":feature-home:presentation")

@@ -27,6 +27,7 @@ dependencies {
 
     // Modules
     implementation(projects.theme)
+    implementation(projects.featureHome.presentation)
 
     // DI
     implementation(libs.hilt.android)

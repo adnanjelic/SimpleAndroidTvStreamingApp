@@ -6,14 +6,15 @@ plugins {
     alias(libs.plugins.ktlint)
 }
 
+apply {
+    from("${project.rootDir}/gradle/android-lib-defaults.build.gradle")
+}
+
 android {
     namespace = "com.adnanjelic.simpletvstreamingapp"
-    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.adnanjelic.simpletvstreamingapp"
-        minSdk = 27
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -32,15 +33,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     buildFeatures {
