@@ -19,5 +19,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
     implementation(projects.architecture.presentation)
+    implementation(projects.architecture.domain)
     ksp(libs.hilt.android.compiler)
 }

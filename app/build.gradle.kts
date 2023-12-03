@@ -55,6 +55,7 @@ dependencies {
     // Modules
     implementation(projects.theme)
     implementation(projects.featureHome.ui)
+    implementation(projects.architecture.domain)
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
