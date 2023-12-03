@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.ui.component
+package com.adnanjelic.simpletvstreamingapp.featurehome.ui.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,9 +13,9 @@ import androidx.compose.ui.unit.dp
 import androidx.tv.foundation.lazy.list.TvLazyRow
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.MovieUiModel
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
-import com.adnanjelic.simpletvstreamingapp.ui.model.CategoryUiModel
-import com.adnanjelic.simpletvstreamingapp.ui.model.MovieUiModel
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable

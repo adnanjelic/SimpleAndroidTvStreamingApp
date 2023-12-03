@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.ui.model
+package com.adnanjelic.simpletvstreamingapp.featurehome.ui.model
 
 internal data class CategoryUiModel(
     val id: String,

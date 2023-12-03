@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.presentation.model
+package com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model
 
 internal sealed interface HomeViewState {
 

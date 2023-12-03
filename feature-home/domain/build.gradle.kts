@@ -10,16 +10,13 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.presentation"
+    namespace = "com.adnanjelic.simpletvstreamingapp.featurehome.domain"
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
-    implementation(projects.architecture.presentation)
     implementation(projects.architecture.domain)
-    implementation(projects.featureHome.domain)
     ksp(libs.hilt.android.compiler)
 }
