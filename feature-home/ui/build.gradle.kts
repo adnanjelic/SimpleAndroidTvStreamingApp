@@ -9,7 +9,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.ui"
+    namespace = "com.adnanjelic.simpletvstreamingapp.ui"
 
     buildFeatures {
         compose = true

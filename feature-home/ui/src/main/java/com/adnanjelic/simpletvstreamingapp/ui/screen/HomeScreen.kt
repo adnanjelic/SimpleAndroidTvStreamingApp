@@ -1,4 +1,4 @@
-package com.adnanjelic.ui.screen
+package com.adnanjelic.simpletvstreamingapp.ui.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.foundation.lazy.list.TvLazyColumn
-import com.adnanjelic.theme.Dimension
-import com.adnanjelic.ui.model.stubItems
+import com.adnanjelic.simpletvstreamingapp.theme.Dimension
+import com.adnanjelic.simpletvstreamingapp.ui.model.stubItems
 
 @Composable
 fun HomeScreen(onMediaSelected: (String) -> Unit = {}) {
@@ -38,6 +38,6 @@ fun HomeScreen(onMediaSelected: (String) -> Unit = {}) {
 
 @Preview
 @Composable
-fun HomeScreenPreview() {
+internal fun HomeScreenPreview() {
     HomeScreen()
 }

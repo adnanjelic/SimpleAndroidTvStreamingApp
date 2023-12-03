@@ -1,4 +1,4 @@
-package com.adnanjelic.theme
+package com.adnanjelic.simpletvstreamingapp.theme
 
 import androidx.compose.ui.unit.dp
 

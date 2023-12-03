@@ -9,7 +9,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.theme"
+    namespace = "com.adnanjelic.simpletvstreamingapp.theme"
 
     buildFeatures {
         compose = true

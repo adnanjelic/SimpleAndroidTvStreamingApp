@@ -1,4 +1,4 @@
-package com.adnanjelic.ui.model
+package com.adnanjelic.simpletvstreamingapp.ui.model
 
 internal fun stubItems() = (1..6).map { categoryNumber ->
     val movies = (1..12).map { movieNumber ->

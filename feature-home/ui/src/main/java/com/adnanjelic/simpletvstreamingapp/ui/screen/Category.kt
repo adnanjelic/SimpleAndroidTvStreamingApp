@@ -1,4 +1,4 @@
-package com.adnanjelic.ui.screen
+package com.adnanjelic.simpletvstreamingapp.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,13 +17,13 @@ import androidx.tv.material3.Card
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import coil.compose.AsyncImage
-import com.adnanjelic.theme.Dimension
-import com.adnanjelic.ui.model.MediaCategoryUiModel
-import com.adnanjelic.ui.model.MediaItemUiModel
+import com.adnanjelic.simpletvstreamingapp.theme.Dimension
+import com.adnanjelic.simpletvstreamingapp.ui.model.MediaCategoryUiModel
+import com.adnanjelic.simpletvstreamingapp.ui.model.MediaItemUiModel
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun Category(
+internal fun Category(
     category: MediaCategoryUiModel,
     onItemSelected: (MediaItemUiModel) -> Unit = {},
 ) {
@@ -58,7 +58,7 @@ fun Category(
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun MovieCard(
+internal fun MovieCard(
     movie: MediaItemUiModel,
     onClick: (MediaItemUiModel) -> Unit = {}
 ) {

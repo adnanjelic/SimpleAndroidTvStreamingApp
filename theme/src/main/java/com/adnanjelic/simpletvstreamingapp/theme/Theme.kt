@@ -1,4 +1,4 @@
-package com.adnanjelic.theme
+package com.adnanjelic.simpletvstreamingapp.theme
 
 import android.os.Build
 import androidx.compose.material3.MaterialTheme
