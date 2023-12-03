@@ -14,4 +14,5 @@ android {
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(projects.architecture.domain)
 }
