@@ -2,13 +2,13 @@ package com.adnanjelic.simpletvstreamingapp.ui.model
 
 internal fun stubItems() = (1..6).map { categoryNumber ->
     val movies = (1..12).map { movieNumber ->
-        MediaItemUiModel(
+        MovieUiModel(
             id = movieNumber.toString(),
             title = "Category: $categoryNumber\n Movie: $movieNumber",
             posterUrl = posters.random()
         )
     }
-    MediaCategoryUiModel(
+    CategoryUiModel(
         id = categoryNumber.toString(),
         name = "Category$categoryNumber",
         items = movies

@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.foundation.lazy.list.TvLazyColumn
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
+import com.adnanjelic.simpletvstreamingapp.ui.component.CategoryRow
 import com.adnanjelic.simpletvstreamingapp.ui.model.stubItems
 
 @Composable
@@ -24,7 +25,7 @@ fun HomeScreen(onMediaSelected: (String) -> Unit = {}) {
     ) {
         categories.forEach { category ->
             item(key = category.id) {
-                Category(
+                CategoryRow(
                     category = category,
                     onItemSelected = {
                         Toast.makeText(context, "Movie clicked: ${it.title}", Toast.LENGTH_SHORT)
