@@ -28,7 +28,7 @@ class HomeInfoLocalSourceImpl(
     }
 
     private fun saveMovies(categories: Collection<CategoryDataModel>) {
-        val movies = categories.flatMap { category ->
+        val movieDbModels = categories.flatMap { category ->
             category.items.map { movie ->
                 val mapperInput = MovieDataToDbModelMapper.Params(
                     movie = movie,
@@ -37,11 +37,11 @@ class HomeInfoLocalSourceImpl(
                 movieDataToDbModelMapper.toDb(mapperInput)
             }
         }
-        database.moviesDao().saveMovies(movies)
+        database.moviesDao().saveMovies(movieDbModels)
     }
 
     private fun saveCategories(categories: Collection<CategoryDataModel>) {
-        val categories = categories.map(categoryDataToDbModelMapper::toDb)
-        database.categoriesDao().saveCategories(categories)
+        val categoryDbModels = categories.map(categoryDataToDbModelMapper::toDb)
+        database.categoriesDao().saveCategories(categoryDbModels)
     }
 }
