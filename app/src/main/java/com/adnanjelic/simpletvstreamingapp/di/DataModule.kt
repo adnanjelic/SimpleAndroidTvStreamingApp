@@ -1,11 +1,14 @@
 package com.adnanjelic.simpletvstreamingapp.di
 
+import android.content.Context
+import androidx.room.Room
 import com.adnanjelic.simpletvstreamingapp.BuildConfig
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.datasource.HomeInfoLocalSource
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.datasource.HomeInfoRemoteSource
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.mapper.HomeInfoDataToDomainMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.repository.HomeInfoRepositoryImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.HomeInfoLocalSourceImpl
+import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database.SimpleTvStreamingAppDatabase
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.HomeInfoRemoteSourceImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.domain.repository.HomeInfoRepository
 import com.squareup.moshi.Moshi
@@ -13,6 +16,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -56,9 +60,9 @@ object DataModule {
 //        .build()
 //        .create()
 
-    @Provides
-    fun providesHomeInfoLocalSource(): HomeInfoLocalSource =
-        HomeInfoLocalSourceImpl()
+//    @Provides
+//    fun providesHomeInfoLocalSource(): HomeInfoLocalSource =
+//        HomeInfoLocalSourceImpl()
 
     @Provides
     fun providesHomeInfoRemoteSource(
@@ -68,7 +72,7 @@ object DataModule {
         HomeInfoRemoteSourceImpl()
 
     @Provides
-    fun provides(
+    fun providesHomeInfoRepository(
         localSource: HomeInfoLocalSource,
         remoteSource: HomeInfoRemoteSource,
         mapper: HomeInfoDataToDomainMapper,
@@ -78,17 +82,17 @@ object DataModule {
         localSource, remoteSource, mapper
     )
 
-//    @Provides
-//    fun providesDatabase(
-//        @ApplicationContext applicationContext: Context
-//    ): CompanyInfoDatabase = Room.databaseBuilder(
-//        applicationContext,
-//        CompanyInfoDatabase::class.java,
-//        "company-info-database"
-//    ).build()
-//
-//    @Provides
-//    fun providesCompanyInfoLocalSource(
-//        database: CompanyInfoDatabase
-//    ): CompanyInfoLocalSource = database.userDao()
+    @Provides
+    fun providesDatabase(
+        @ApplicationContext applicationContext: Context
+    ): SimpleTvStreamingAppDatabase = Room.databaseBuilder(
+        context = applicationContext,
+        klass = SimpleTvStreamingAppDatabase::class.java,
+        name = "SimpleTvStreamingAppDatabase"
+    ).build()
+
+    @Provides
+    fun providesHomeInfoLocalSource(
+        database: SimpleTvStreamingAppDatabase
+    ): HomeInfoLocalSource = HomeInfoLocalSourceImpl(database)
 }
