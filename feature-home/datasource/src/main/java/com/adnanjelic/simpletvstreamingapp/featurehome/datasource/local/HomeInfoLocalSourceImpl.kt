@@ -18,8 +18,14 @@ class HomeInfoLocalSourceImpl(
 ) : HomeInfoLocalSource {
 
     override suspend fun homeInfo(): Flow<HomeInfoDataModel?> =
-        database.categoriesWithMoviesDao().categoriesWithMovies().map { categoryWithMovies ->
-            HomeInfoDataModel(categories = categoryWithMovies.map(categoriesWithMoviesDbToDataMapper::toData))
+        database.categoriesWithMoviesDao().categoriesWithMovies().map { categoriesWithMovies ->
+            if (categoriesWithMovies.isNotEmpty()) {
+                HomeInfoDataModel(
+                    categories = categoriesWithMovies.map(categoriesWithMoviesDbToDataMapper::toData)
+                )
+            } else {
+                null
+            }
         }
 
     override suspend fun saveHomeInfo(info: HomeInfoDataModel) {

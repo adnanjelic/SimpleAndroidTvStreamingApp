@@ -64,6 +64,7 @@ dependencies {
     implementation(projects.featureHome.datasource)
     implementation(projects.featureHome.data)
     implementation(projects.featureHome.domain)
+    implementation(projects.featureHome.presentation)
     implementation(projects.featureHome.ui)
     implementation(projects.architecture.domain)
 

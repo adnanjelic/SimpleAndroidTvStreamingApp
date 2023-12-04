@@ -12,7 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-internal class HomeViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val getHomeInfoUseCase: GetHomeInfoUseCase,
     private val homeInfoMapper: HomeInfoDomainToPresentationModelMapper,
     private val homeExceptionMapper: HomeDomainToPresentationExceptionMapper,

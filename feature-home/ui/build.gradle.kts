@@ -28,9 +28,14 @@ dependencies {
     // Modules
     implementation(projects.theme)
     implementation(projects.featureHome.presentation)
+    implementation(projects.architecture.ui)
+    implementation(projects.architecture.presentation)
 
     // DI
     implementation(libs.hilt.android)
+
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Compose
     implementation(libs.compose.activity)

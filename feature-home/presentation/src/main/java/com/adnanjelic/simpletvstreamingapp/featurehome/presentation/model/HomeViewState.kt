@@ -1,6 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model
 
-internal sealed interface HomeViewState {
+sealed interface HomeViewState {
 
     data object Initial : HomeViewState
 

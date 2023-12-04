@@ -10,7 +10,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.presentation"
+    namespace = "com.adnanjelic.simpletvstreamingapp.featurehome.presentation"
 }
 
 dependencies {

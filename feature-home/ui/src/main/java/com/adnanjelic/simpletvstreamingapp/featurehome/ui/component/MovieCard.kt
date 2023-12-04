@@ -13,10 +13,10 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.MovieUiModel
 @Composable
 internal fun MovieCard(
     movie: MovieUiModel,
-    onClick: (MovieUiModel) -> Unit = {}
+    onMovieSelected: (String) -> Unit = {}
 ) {
     Card(
-        onClick = { onClick(movie) }
+        onClick = { onMovieSelected(movie.id) }
     ) {
         AsyncImage(
             model = movie.posterUrl,
