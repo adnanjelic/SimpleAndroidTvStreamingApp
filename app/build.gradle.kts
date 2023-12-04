@@ -25,9 +25,16 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
+        }
+        release {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -54,6 +61,9 @@ dependencies {
 
     // Modules
     implementation(projects.theme)
+    implementation(projects.featureHome.datasource)
+    implementation(projects.featureHome.data)
+    implementation(projects.featureHome.domain)
     implementation(projects.featureHome.ui)
     implementation(projects.architecture.domain)
 
