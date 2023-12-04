@@ -3,11 +3,11 @@ package com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.databas
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.model.CategoryDbModel
+import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.model.MovieDbModel
 
 @Dao
-interface CategoriesDao {
+interface MoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveCategories(categories: List<CategoryDbModel>)
+    fun saveMovies(movies: List<MovieDbModel>)
 }

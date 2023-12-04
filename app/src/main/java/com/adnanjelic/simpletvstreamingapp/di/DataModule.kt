@@ -9,6 +9,9 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.data.mapper.HomeInfoDataT
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.repository.HomeInfoRepositoryImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.HomeInfoLocalSourceImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database.SimpleTvStreamingAppDatabase
+import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryDataToDbModelMapper
+import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryWithMoviesDbToDataModelMapper
+import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.MovieDataToDbModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.HomeInfoRemoteSourceImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.domain.repository.HomeInfoRepository
 import com.squareup.moshi.Moshi
@@ -93,6 +96,14 @@ object DataModule {
 
     @Provides
     fun providesHomeInfoLocalSource(
-        database: SimpleTvStreamingAppDatabase
-    ): HomeInfoLocalSource = HomeInfoLocalSourceImpl(database)
+        database: SimpleTvStreamingAppDatabase,
+        categoriesWithMoviesDbToDataMapper: CategoryWithMoviesDbToDataModelMapper,
+        categoryDataToDbModelMapper: CategoryDataToDbModelMapper,
+        movieDataToDbModelMapper: MovieDataToDbModelMapper
+    ): HomeInfoLocalSource = HomeInfoLocalSourceImpl(
+        database,
+        categoriesWithMoviesDbToDataMapper,
+        categoryDataToDbModelMapper,
+        movieDataToDbModelMapper
+    )
 }

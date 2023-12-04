@@ -9,4 +9,8 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.model.Mo
 abstract class SimpleTvStreamingAppDatabase : RoomDatabase() {
 
     abstract fun categoriesDao(): CategoriesDao
+
+    abstract fun moviesDao(): MoviesDao
+
+    abstract fun categoriesWithMoviesDao(): CategoriesWithMoviesDao
 }
