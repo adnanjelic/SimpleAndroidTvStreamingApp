@@ -19,7 +19,10 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
         composable(route = NavigationDestination.Home.route) {
             HomeScreen(onNavigateToMovieDetails = { movieId ->
                 navHostController.navigate(
-                    NavigationDestination.MovieDetails.route.replace(MovieIdParameter, movieId)
+                    NavigationDestination.MovieDetails.route.addParameterValue(
+                        parameter = MovieIdParameter,
+                        value = movieId
+                    )
                 )
             })
         }
@@ -36,3 +39,6 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
         }
     }
 }
+
+private fun String.addParameterValue(parameter: String, value: String) =
+    this.replace("{$parameter}", value)
