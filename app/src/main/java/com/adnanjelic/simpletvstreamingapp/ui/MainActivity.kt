@@ -7,7 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen.HomeScreen
+import androidx.navigation.compose.rememberNavController
+import com.adnanjelic.simpletvstreamingapp.navigation.SimpleTvStreamingAppNavHost
 import com.adnanjelic.simpletvstreamingapp.theme.SimpleTvStreamingAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    val navController = rememberNavController()
+                    SimpleTvStreamingAppNavHost(navHostController = navController)
                 }
             }
         }

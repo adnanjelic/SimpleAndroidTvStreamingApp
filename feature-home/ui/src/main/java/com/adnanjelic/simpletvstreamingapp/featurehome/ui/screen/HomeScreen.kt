@@ -13,7 +13,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.MoviePresentati
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onMovieSelected: (String) -> Unit = {}
+    onNavigateToMovieDetails: (String) -> Unit,
 ) {
     val movieMapper = MoviePresentationToUiModelMapper()
     val categoriesMapper = CategoryPresentationToUiModelMapper(movieMapper)
@@ -27,12 +27,12 @@ fun HomeScreen(
     HomeContent(
         isVisible = viewState.value is HomeViewState.Loaded,
         categoriesWithMovies = categoriesWithMovies ?: emptyList(),
-        onMovieSelected = onMovieSelected
+        onMovieSelected = onNavigateToMovieDetails
     )
 }
 
 @Preview
 @Composable
 internal fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(onNavigateToMovieDetails = {})
 }
