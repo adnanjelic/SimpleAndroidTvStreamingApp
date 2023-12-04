@@ -1,6 +1,7 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local
 
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.datasource.HomeInfoLocalSource
+import com.adnanjelic.simpletvstreamingapp.featurehome.data.model.CategoryDataModel
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.model.HomeInfoDataModel
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database.SimpleTvStreamingAppDatabase
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryDataToDbModelMapper
@@ -22,10 +23,12 @@ class HomeInfoLocalSourceImpl(
         }
 
     override suspend fun saveHomeInfo(info: HomeInfoDataModel) {
-        val categories = info.categories.map(categoryDataToDbModelMapper::toDb)
-        database.categoriesDao().saveCategories(categories)
+        saveCategories(info.categories)
+        saveMovies(info.categories)
+    }
 
-        val movies = info.categories.flatMap { category ->
+    private fun saveMovies(categories: Collection<CategoryDataModel>) {
+        val movies = categories.flatMap { category ->
             category.items.map { movie ->
                 val mapperInput = MovieDataToDbModelMapper.Params(
                     movie = movie,
@@ -35,5 +38,10 @@ class HomeInfoLocalSourceImpl(
             }
         }
         database.moviesDao().saveMovies(movies)
+    }
+
+    private fun saveCategories(categories: Collection<CategoryDataModel>) {
+        val categories = categories.map(categoryDataToDbModelMapper::toDb)
+        database.categoriesDao().saveCategories(categories)
     }
 }
