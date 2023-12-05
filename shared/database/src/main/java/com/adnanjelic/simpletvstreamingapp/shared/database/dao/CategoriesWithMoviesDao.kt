@@ -1,9 +1,9 @@
-package com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database
+package com.adnanjelic.simpletvstreamingapp.shared.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
-import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.model.CategoryWithMovies
+import com.adnanjelic.simpletvstreamingapp.shared.database.model.CategoryWithMovies
 import kotlinx.coroutines.flow.Flow
 
 @Dao

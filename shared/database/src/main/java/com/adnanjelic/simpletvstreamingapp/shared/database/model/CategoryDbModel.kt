@@ -1,13 +1,11 @@
-package com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.model
+package com.adnanjelic.simpletvstreamingapp.shared.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.adnanjelic.simpletvstreamingapp.architecture.data.model.DbModel
 
 @Entity
-data class MovieDbModel(
+data class CategoryDbModel(
     @PrimaryKey val id: String,
-    val categoryId: String,
-    val title: String,
-    val posterUrl: String
+    val name: String
 ) : DbModel

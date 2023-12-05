@@ -73,6 +73,7 @@ dependencies {
     implementation(projects.featureMovieDetails.datasource)
     implementation(projects.architecture.domain)
     implementation(projects.shared.navigation)
+    implementation(projects.shared.database)
 
     // AndroidX
     implementation(libs.androidx.core.ktx)

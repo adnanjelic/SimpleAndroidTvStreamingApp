@@ -7,7 +7,6 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.data.datasource.HomeInfoR
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.mapper.HomeInfoDataToDomainMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.repository.HomeInfoRepositoryImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.HomeInfoLocalSourceImpl
-import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database.SimpleTvStreamingAppDatabase
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryDataToDbModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryWithMoviesDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.MovieDataToDbModelMapper
@@ -19,6 +18,7 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.data.mapper.MovieDetails
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.repository.MovieDetailsRepositoryImpl
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDetailsLocalSourceImpl
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
+import com.adnanjelic.simpletvstreamingapp.shared.database.SimpleTvStreamingAppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

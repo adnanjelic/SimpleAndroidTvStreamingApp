@@ -3,10 +3,10 @@ package com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.datasource.HomeInfoLocalSource
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.model.CategoryDataModel
 import com.adnanjelic.simpletvstreamingapp.featurehome.data.model.HomeInfoDataModel
-import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.database.SimpleTvStreamingAppDatabase
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryDataToDbModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryWithMoviesDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.MovieDataToDbModelMapper
+import com.adnanjelic.simpletvstreamingapp.shared.database.SimpleTvStreamingAppDatabase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

@@ -10,7 +10,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.featurehome.datasource"
+    namespace = "com.adnanjelic.simpletvstreamingapp.shared.database"
 }
 
 dependencies {
@@ -19,13 +19,8 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
-    implementation(projects.featureHome.data)
     implementation(projects.architecture.data)
-    implementation(projects.shared.database)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.moshi.kotlin)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
