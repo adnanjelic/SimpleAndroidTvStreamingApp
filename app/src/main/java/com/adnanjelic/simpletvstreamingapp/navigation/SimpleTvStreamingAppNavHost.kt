@@ -30,11 +30,8 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
             arguments = listOf(navArgument(MOVIE_ID_PARAMETER) {
                 type = NavType.StringType
             })
-        ) { backStackEntry ->
-            MovieDetailsScreen(
-                movieId = backStackEntry.arguments?.getString(MOVIE_ID_PARAMETER),
-                onNavigation = { navHostController.navigate(it) }
-            )
+        ) {
+            MovieDetailsScreen(onNavigation = { navHostController.navigate(it) })
         }
     }
 }
@@ -50,6 +47,7 @@ private fun NavHostController.navigate(destination: NavigationDestination) {
                 )
             )
         }
+
         is MoviePlayer -> {
             /** TODO() **/
         }
