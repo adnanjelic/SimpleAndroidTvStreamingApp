@@ -66,8 +66,10 @@ object DataModule {
     ).build()
 
     @Provides
-    fun providesMovieDetailsLocalSource(movieDetailsMapper: MovieDetailsDbToDataModelMapper): MovieDetailsLocalSource =
-        MovieDetailsLocalSourceImpl(movieDetailsMapper)
+    fun providesMovieDetailsLocalSource(
+        database: SimpleTvStreamingAppDatabase,
+        movieDetailsMapper: MovieDetailsDbToDataModelMapper
+    ): MovieDetailsLocalSource = MovieDetailsLocalSourceImpl(database, movieDetailsMapper)
 
     @Provides
     fun providesMovieDetailsRepository(

@@ -23,6 +23,10 @@ dependencies {
     implementation(projects.architecture.data)
     implementation(projects.shared.database)
 
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+
     testImplementation(libs.test.junit)
     testImplementation(libs.test.mockito.kotlin)
 }
