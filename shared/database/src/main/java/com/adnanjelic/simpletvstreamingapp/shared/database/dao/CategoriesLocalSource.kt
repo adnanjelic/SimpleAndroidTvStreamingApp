@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import com.adnanjelic.simpletvstreamingapp.shared.database.model.CategoryDbModel
 
 @Dao
-interface CategoriesDao {
+interface CategoriesLocalSource {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveCategories(categories: List<CategoryDbModel>)

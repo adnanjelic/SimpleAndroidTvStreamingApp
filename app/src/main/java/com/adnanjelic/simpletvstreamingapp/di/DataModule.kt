@@ -41,12 +41,14 @@ object DataModule {
 
     @Provides
     fun providesHomeInfoLocalSource(
-        database: SimpleTvStreamingAppDatabase,
+        storage: SimpleTvStreamingAppDatabase,
         categoriesWithMoviesDbToDataMapper: CategoryWithMoviesDbToDataModelMapper,
         categoryDataToDbModelMapper: CategoryDataToDbModelMapper,
         movieDataToDbModelMapper: MovieDataToDbModelMapper
     ): HomeInfoLocalSource = HomeInfoLocalSourceImpl(
-        database,
+        storage.movies(),
+        storage.categories(),
+        storage.categoriesWithMovies(),
         categoriesWithMoviesDbToDataMapper,
         categoryDataToDbModelMapper,
         movieDataToDbModelMapper
@@ -67,10 +69,10 @@ object DataModule {
 
     @Provides
     fun providesMovieDetailsLocalSource(
-        database: SimpleTvStreamingAppDatabase,
+        storage: SimpleTvStreamingAppDatabase,
         movieDetailsMapper: MovieDetailsDbToDataModelMapper
     ): MovieDetailsLocalSource =
-        MovieDetailsLocalSourceImpl(database.moviesDao(), movieDetailsMapper)
+        MovieDetailsLocalSourceImpl(storage.movies(), movieDetailsMapper)
 
     @Provides
     fun providesMovieDetailsRepository(

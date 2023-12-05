@@ -7,7 +7,7 @@ import com.adnanjelic.simpletvstreamingapp.shared.database.model.CategoryWithMov
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CategoriesWithMoviesDao {
+interface CategoriesWithMoviesLocalSource {
 
     @Transaction
     @Query("SELECT * FROM CategoryDbModel")

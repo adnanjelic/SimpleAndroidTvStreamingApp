@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.adnanjelic.simpletvstreamingapp.shared.database.model.MovieDbModel
 
 @Dao
-interface MoviesDao {
+interface MoviesLocalSource {
 
     @Query("SELECT * FROM MovieDbModel where id = :movieId")
     fun movieDetails(movieId: String): MovieDbModel
