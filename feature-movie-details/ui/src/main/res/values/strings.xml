@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_label">Title:</string>
+    <string name="description_label">Description</string>
+    <string name="duration_label">Duration:</string>
+    <string name="rating_label">Rating:</string>
+</resources>

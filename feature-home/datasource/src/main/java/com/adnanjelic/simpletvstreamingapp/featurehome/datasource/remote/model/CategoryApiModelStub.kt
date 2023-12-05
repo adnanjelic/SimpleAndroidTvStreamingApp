@@ -33,6 +33,7 @@ private fun stubMovieApiModels(categoryId: Int) = (1..12).map { movieNumber ->
     MovieApiModel(
         id = "$categoryId$movieNumber",
         title = movieNames.random(),
+        description = MOVIE_DESCRIPTION,
         posterUrl = posterUrls.random(),
         duration = durations.random(),
         rating = ratings.random(),
@@ -49,6 +50,8 @@ private val movieNames = listOf(
     "The Equalizer 3",
     "The Hunger Games: The Ballad of Songbirds & Snakes"
 )
+
+private const val MOVIE_DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 private val posterUrls = listOf(
     "https://www.closeup-shop.com/media/oart_0/oart_m/oart_14146/1023019_G524780.JPG",
