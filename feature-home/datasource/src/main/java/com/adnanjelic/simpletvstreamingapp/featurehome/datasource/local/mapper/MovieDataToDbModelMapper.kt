@@ -13,7 +13,11 @@ class MovieDataToDbModelMapper @Inject constructor() :
         id = input.movie.id,
         categoryId = input.categoryId,
         title = input.movie.title,
-        posterUrl = input.movie.posterUrl
+        posterUrl = input.movie.posterUrl,
+        description = input.movie.description,
+        duration = input.movie.duration,
+        rating = input.movie.rating,
+        trailerUrl = input.movie.trailerUrl
     )
 
     data class Params(val movie: MovieDataModel, val categoryId: String) : DataModel

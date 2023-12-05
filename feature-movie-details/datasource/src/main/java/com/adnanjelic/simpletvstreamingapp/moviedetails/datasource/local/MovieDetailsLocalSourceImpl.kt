@@ -2,10 +2,13 @@ package com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local
 
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.datasource.MovieDetailsLocalSource
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.model.MovieDetailsDataModel
+import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 
-class MovieDetailsLocalSourceImpl : MovieDetailsLocalSource {
+class MovieDetailsLocalSourceImpl(private val movieDetailsMapper: MovieDetailsDbToDataModelMapper) :
+    MovieDetailsLocalSource {
 
     override fun movieDetails(movieId: String): MovieDetailsDataModel {
+        movieDetailsMapper
         return MovieDetailsDataModel(
             id = "281",
             title = "Mission: Impossible - Dead Reckoning Part One",

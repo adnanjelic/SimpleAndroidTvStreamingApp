@@ -21,6 +21,7 @@ dependencies {
 
     implementation(projects.featureMovieDetails.data)
     implementation(projects.architecture.data)
+    implementation(projects.shared.database)
 
     testImplementation(libs.test.junit)
     testImplementation(libs.test.mockito.kotlin)

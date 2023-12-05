@@ -9,5 +9,9 @@ data class MovieDbModel(
     @PrimaryKey val id: String,
     val categoryId: String,
     val title: String,
-    val posterUrl: String
+    val description: String,
+    val posterUrl: String,
+    val duration: String,
+    val rating: Float,
+    val trailerUrl: String
 ) : DbModel

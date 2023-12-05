@@ -17,6 +17,7 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.data.datasource.MovieDet
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.mapper.MovieDetailsDataToDomainModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.repository.MovieDetailsRepositoryImpl
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDetailsLocalSourceImpl
+import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import com.adnanjelic.simpletvstreamingapp.shared.database.SimpleTvStreamingAppDatabase
 import dagger.Module
@@ -65,7 +66,8 @@ object DataModule {
     ).build()
 
     @Provides
-    fun providesMovieDetailsLocalSource(): MovieDetailsLocalSource = MovieDetailsLocalSourceImpl()
+    fun providesMovieDetailsLocalSource(movieDetailsMapper: MovieDetailsDbToDataModelMapper): MovieDetailsLocalSource =
+        MovieDetailsLocalSourceImpl(movieDetailsMapper)
 
     @Provides
     fun providesMovieDetailsRepository(
