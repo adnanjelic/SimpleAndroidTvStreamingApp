@@ -12,6 +12,6 @@ data class MovieDbModel(
     val description: String,
     val posterUrl: String,
     val duration: String,
-    val rating: Float,
+    val rating: String,
     val trailerUrl: String
 ) : DbModel

@@ -14,6 +14,6 @@ class MovieDetailsPresentationToUiModelMapper @Inject constructor() :
         posterUrl = input.posterUrl,
         description = input.description,
         duration = input.duration,
-        rating = input.rating.toString()
+        rating = input.rating
     )
 }
