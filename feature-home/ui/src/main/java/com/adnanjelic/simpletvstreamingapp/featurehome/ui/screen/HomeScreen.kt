@@ -8,15 +8,18 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.HomeViewMode
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomeViewState
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.HomeContent
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.CategoryPresentationToUiModelMapper
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.HomeInfoPresentationDestinationToNavigationDestinationModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.MoviePresentationToUiModelMapper
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
 
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onNavigateToMovieDetails: (String) -> Unit,
+    onNavigation: (NavigationDestination) -> Unit = {}
 ) {
     val movieMapper = MoviePresentationToUiModelMapper()
     val categoriesMapper = CategoryPresentationToUiModelMapper(movieMapper)
+    val destinationMapper = HomeInfoPresentationDestinationToNavigationDestinationModelMapper()
 
     val viewState = viewModel.viewState.collectAsStateWithLifecycle()
     val categoriesWithMovies =
@@ -27,12 +30,17 @@ fun HomeScreen(
     HomeContent(
         isVisible = viewState.value is HomeViewState.Loaded,
         categoriesWithMovies = categoriesWithMovies ?: emptyList(),
-        onMovieSelected = onNavigateToMovieDetails
+        onMovieSelected = { viewModel.onMovieSelected(it) }
     )
+
+    navigation.value?.let {
+        val destination = destinationMapper.toDestination(it)
+        onNavigation(destination)
+    }
 }
 
 @Preview
 @Composable
 internal fun HomeScreenPreview() {
-    HomeScreen(onNavigateToMovieDetails = {})
+    HomeScreen()
 }

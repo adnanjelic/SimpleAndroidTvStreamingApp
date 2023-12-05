@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.navigation
+package com.adnanjelic.simpletvstreamingapp.shared.navigation
 
 object NavigationConstants {
 

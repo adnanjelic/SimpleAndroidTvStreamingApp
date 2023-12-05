@@ -5,4 +5,6 @@ import com.adnanjelic.simpletvstreamingapp.architecture.presentation.navigation.
 sealed interface MovieDetailsPresentationDestination : PresentationDestination {
 
     data object Back : MovieDetailsPresentationDestination
+
+    data class PlayMovie(val movieId: String) : MovieDetailsPresentationDestination
 }

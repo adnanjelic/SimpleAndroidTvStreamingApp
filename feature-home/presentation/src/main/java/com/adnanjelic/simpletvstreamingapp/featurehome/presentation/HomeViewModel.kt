@@ -6,6 +6,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.domain.usecase.GetHomeInf
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.mapper.HomeDomainToPresentationExceptionMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.mapper.HomeInfoDomainToPresentationModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePresentationDestination
+import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePresentationDestination.MovieDetails
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePresentationNotification
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomeViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -32,5 +33,9 @@ class HomeViewModel @Inject constructor(
             onResult = { updateViewState(HomeViewState.Loaded(homeInfoMapper.toPresentation(it))) },
             onException = { notify(homeExceptionMapper.toPresentation(it)) }
         )
+    }
+
+    fun onMovieSelected(movieId: String) {
+        navigate(MovieDetails(movieId))
     }
 }

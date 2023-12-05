@@ -13,4 +13,5 @@ android {
 
 dependencies {
     implementation(projects.architecture.presentation)
+    implementation(projects.shared.navigation)
 }

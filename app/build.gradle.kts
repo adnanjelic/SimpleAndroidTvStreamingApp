@@ -69,6 +69,7 @@ dependencies {
     implementation(projects.featureMovieDetails.ui)
     implementation(projects.featureMovieDetails.presentation)
     implementation(projects.architecture.domain)
+    implementation(projects.shared.navigation)
 
     // AndroidX
     implementation(libs.androidx.core.ktx)

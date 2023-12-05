@@ -8,35 +8,51 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen.HomeScreen
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.screen.MovieDetailsScreen
-import com.adnanjelic.simpletvstreamingapp.navigation.NavigationConstants.MovieIdParameter
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.NavigationConstants.MovieIdParameter
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination.Back
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination.MovieDetails
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination.MoviePlayer
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.Route
+import com.adnanjelic.simpletvstreamingapp.shared.navigation.utils.addParameterValue
 
 @Composable
 fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = NavigationDestination.Home.route
+        startDestination = Route.Home.route
     ) {
-        composable(route = NavigationDestination.Home.route) {
-            HomeScreen(onNavigateToMovieDetails = { movieId ->
-                navHostController.navigate(
-                    NavigationDestination.MovieDetails.route.addParameterValue(
-                        parameter = MovieIdParameter,
-                        value = movieId
-                    )
-                )
-            })
+        composable(route = Route.Home.route) {
+            HomeScreen(onNavigation = { navHostController.navigate(it) })
         }
         composable(
-            route = NavigationDestination.MovieDetails.route,
+            route = Route.MovieDetails.route,
             arguments = listOf(navArgument(MovieIdParameter) {
                 type = NavType.StringType
             })
         ) { backStackEntry ->
             MovieDetailsScreen(
                 movieId = backStackEntry.arguments?.getString(MovieIdParameter),
-                onNavigateBack = { navHostController.popBackStack() },
-                onPlayMovie = {}
+                onNavigation = { navHostController.navigate(it) }
             )
         }
     }
+}
+
+private fun NavHostController.navigate(destination: NavigationDestination) {
+    when (destination) {
+        Back -> popBackStack()
+        is MovieDetails -> {
+            navigate(
+                Route.MovieDetails.route.addParameterValue(
+                    parameter = MovieIdParameter,
+                    value = destination.movieId
+                )
+            )
+        }
+        is MoviePlayer -> {
+            /** TODO() **/
+        }
+    }
+
 }

@@ -30,6 +30,7 @@ dependencies {
     implementation(projects.featureHome.presentation)
     implementation(projects.architecture.ui)
     implementation(projects.architecture.presentation)
+    implementation(projects.shared.navigation)
 
     // DI
     implementation(libs.hilt.android)

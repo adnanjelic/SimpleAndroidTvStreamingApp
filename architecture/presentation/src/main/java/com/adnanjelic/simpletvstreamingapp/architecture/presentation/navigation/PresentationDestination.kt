@@ -1,5 +1,7 @@
 package com.adnanjelic.simpletvstreamingapp.architecture.presentation.navigation
 
-interface PresentationDestination {
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationModel
+
+interface PresentationDestination : PresentationModel {
     object Back : PresentationDestination
 }

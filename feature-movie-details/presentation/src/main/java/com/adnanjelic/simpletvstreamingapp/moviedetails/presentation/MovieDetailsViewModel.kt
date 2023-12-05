@@ -4,6 +4,8 @@ import com.adnanjelic.simpletvstreamingapp.architecture.domain.UseCaseExecutor
 import com.adnanjelic.simpletvstreamingapp.architecture.presentation.viewmodel.BaseViewModel
 import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.mapper.MovieDetailsDomainToPresentationExceptionMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsPresentationDestination
+import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsPresentationDestination.Back
+import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsPresentationDestination.PlayMovie
 import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsPresentationModel
 import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsPresentationNotification
 import com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model.MovieDetailsViewState
@@ -44,10 +46,10 @@ class MovieDetailsViewModel @Inject constructor(
     }
 
     fun onNavigateBackSelected() {
-
+        navigate(Back)
     }
 
     fun onPlayMovieSelected(movieId: String) {
-
+        navigate(PlayMovie(movieId))
     }
 }
