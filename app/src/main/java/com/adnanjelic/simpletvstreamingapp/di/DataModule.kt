@@ -14,6 +14,8 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.M
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.HomeInfoRemoteSourceImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.mapper.CategoryApiToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.domain.repository.HomeInfoRepository
+import com.adnanjelic.simpletvstreamingapp.moviedetails.data.repository.MovieDetailsRepositoryImpl
+import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,4 +60,10 @@ object DataModule {
         klass = SimpleTvStreamingAppDatabase::class.java,
         name = "SimpleTvStreamingAppDatabase"
     ).build()
+
+    @Provides
+    fun providesMovieDetailsRepository(
+    ): MovieDetailsRepository = MovieDetailsRepositoryImpl(
+
+    )
 }

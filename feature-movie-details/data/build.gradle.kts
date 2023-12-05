@@ -10,19 +10,19 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.moviedetails.presentation"
+    namespace = "com.adnanjelic.simpletvstreamingapp.moviedetails.data"
 }
 
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
-    implementation(projects.architecture.presentation)
-    implementation(projects.architecture.domain)
     implementation(projects.featureMovieDetails.domain)
+    implementation(projects.architecture.data)
+    implementation(projects.architecture.domain)
 
     testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
 }
