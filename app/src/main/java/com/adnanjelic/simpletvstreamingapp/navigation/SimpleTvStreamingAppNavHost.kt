@@ -9,7 +9,6 @@ import androidx.navigation.navArgument
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen.HomeScreen
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.screen.MovieDetailsScreen
 import com.adnanjelic.simpletvstreamingapp.navigation.NavigationConstants.MovieIdParameter
-import com.adnanjelic.simpletvstreamingapp.navigation.NavigationConstants.ParameterWrapper
 
 @Composable
 fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
@@ -40,6 +39,3 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
         }
     }
 }
-
-private fun String.addParameterValue(parameter: String, value: String) =
-    this.replace(ParameterWrapper.format(parameter), value)
