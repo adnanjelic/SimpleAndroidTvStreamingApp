@@ -69,7 +69,8 @@ object DataModule {
     fun providesMovieDetailsLocalSource(
         database: SimpleTvStreamingAppDatabase,
         movieDetailsMapper: MovieDetailsDbToDataModelMapper
-    ): MovieDetailsLocalSource = MovieDetailsLocalSourceImpl(database, movieDetailsMapper)
+    ): MovieDetailsLocalSource =
+        MovieDetailsLocalSourceImpl(database.moviesDao(), movieDetailsMapper)
 
     @Provides
     fun providesMovieDetailsRepository(
