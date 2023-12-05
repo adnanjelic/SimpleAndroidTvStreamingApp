@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.navigation.NavHostController
+import androidx.compose.ui.res.stringResource
 import androidx.tv.material3.Button
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
@@ -25,7 +25,11 @@ import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun MovieDetailsScreen(navHostController: NavHostController, movieId: String?) {
+fun MovieDetailsScreen(
+    movieId: String?,
+    onNavigateBack: () -> Unit = {},
+    onPlayMovie: (String) -> Unit = {}
+) {
     val movie = MovieDetailsUiModel(
         id = "281",
         title = "Mission: Impossible - Dead Reckoning Part One",
@@ -48,9 +52,9 @@ fun MovieDetailsScreen(navHostController: NavHostController, movieId: String?) {
 
         Button(
             modifier = Modifier.padding(Dimension.Padding.Big),
-            onClick = { navHostController.popBackStack() }
+            onClick = onNavigateBack
         ) {
-            Text("Back")
+            Text(stringResource(id = R.string.back_label))
         }
 
         Column(
@@ -70,8 +74,8 @@ fun MovieDetailsScreen(navHostController: NavHostController, movieId: String?) {
             DefaultSpacer()
             MovieDescription(text = movie.description)
             DefaultSpacer()
-            Button(onClick = { }) {
-                Text("Play")
+            Button(onClick = { onPlayMovie(movie.id) }) {
+                Text(stringResource(id = R.string.play_movie_label))
             }
         }
     }

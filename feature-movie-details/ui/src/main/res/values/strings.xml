@@ -4,4 +4,6 @@
     <string name="description_label">Description</string>
     <string name="duration_label">Duration:</string>
     <string name="rating_label">Rating:</string>
+    <string name="play_movie_label">Play movie</string>
+    <string name="back_label">Back</string>
 </resources>

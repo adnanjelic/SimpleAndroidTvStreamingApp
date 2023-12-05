@@ -33,8 +33,9 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
             })
         ) { backStackEntry ->
             MovieDetailsScreen(
-                navHostController = navHostController,
-                movieId = backStackEntry.arguments?.getString(MovieIdParameter)
+                movieId = backStackEntry.arguments?.getString(MovieIdParameter),
+                onNavigateBack = { navHostController.popBackStack() },
+                onPlayMovie = {}
             )
         }
     }

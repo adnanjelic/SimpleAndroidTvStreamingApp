@@ -19,7 +19,6 @@ internal fun MovieAttributeRow(
     text: String,
     textStyle: TextStyle = MaterialTheme.typography.bodyMedium
 ) {
-
     Row(verticalAlignment = Alignment.Bottom) {
 
         Label(textResourceId = headerResourceId)
