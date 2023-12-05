@@ -21,7 +21,7 @@ dependencies {
 
     implementation(projects.featureHome.data)
     implementation(projects.architecture.data)
-    implementation(projects.shared.database)
+    implementation(projects.shared.storage)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)

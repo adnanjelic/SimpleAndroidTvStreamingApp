@@ -21,7 +21,7 @@ dependencies {
 
     implementation(projects.featureMovieDetails.data)
     implementation(projects.architecture.data)
-    implementation(projects.shared.database)
+    implementation(projects.shared.storage)
 
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)

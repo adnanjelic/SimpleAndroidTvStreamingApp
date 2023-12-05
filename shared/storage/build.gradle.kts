@@ -10,7 +10,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.shared.database"
+    namespace = "com.adnanjelic.simpletvstreamingapp.shared.storage"
 }
 
 dependencies {

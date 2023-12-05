@@ -19,7 +19,7 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.data.repository.MovieDet
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDetailsLocalSourceImpl
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
-import com.adnanjelic.simpletvstreamingapp.shared.database.SimpleTvStreamingAppDatabase
+import com.adnanjelic.simpletvstreamingapp.shared.storage.SimpleTvStreamingAppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -61,11 +61,12 @@ object DataModule {
     @Provides
     fun providesDatabase(
         @ApplicationContext applicationContext: Context
-    ): SimpleTvStreamingAppDatabase = Room.databaseBuilder(
-        context = applicationContext,
-        klass = SimpleTvStreamingAppDatabase::class.java,
-        name = "SimpleTvStreamingAppDatabase"
-    ).build()
+    ): SimpleTvStreamingAppDatabase =
+        Room.databaseBuilder(
+            context = applicationContext,
+            klass = SimpleTvStreamingAppDatabase::class.java,
+            name = "SimpleTvStreamingAppDatabase"
+        ).build()
 
     @Provides
     fun providesMovieDetailsLocalSource(

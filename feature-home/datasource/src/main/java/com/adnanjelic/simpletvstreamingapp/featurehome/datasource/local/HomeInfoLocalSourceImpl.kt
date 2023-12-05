@@ -6,16 +6,13 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.data.model.HomeInfoDataMo
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryDataToDbModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.CategoryWithMoviesDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.MovieDataToDbModelMapper
-import com.adnanjelic.simpletvstreamingapp.shared.database.dao.CategoriesLocalSource
-import com.adnanjelic.simpletvstreamingapp.shared.database.dao.CategoriesWithMoviesLocalSource
-import com.adnanjelic.simpletvstreamingapp.shared.database.dao.MoviesLocalSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class HomeInfoLocalSourceImpl(
-    private val moviesLocalSource: MoviesLocalSource,
-    private val categoriesLocalSource: CategoriesLocalSource,
-    private val categoriesWithMoviesLocalSource: CategoriesWithMoviesLocalSource,
+    private val moviesLocalSource: com.adnanjelic.simpletvstreamingapp.shared.storage.dao.MoviesLocalSource,
+    private val categoriesLocalSource: com.adnanjelic.simpletvstreamingapp.shared.storage.dao.CategoriesLocalSource,
+    private val categoriesWithMoviesLocalSource: com.adnanjelic.simpletvstreamingapp.shared.storage.dao.CategoriesWithMoviesLocalSource,
     private val categoriesWithMoviesDbToDataMapper: CategoryWithMoviesDbToDataModelMapper,
     private val categoryDataToDbModelMapper: CategoryDataToDbModelMapper,
     private val movieDataToDbModelMapper: MovieDataToDbModelMapper

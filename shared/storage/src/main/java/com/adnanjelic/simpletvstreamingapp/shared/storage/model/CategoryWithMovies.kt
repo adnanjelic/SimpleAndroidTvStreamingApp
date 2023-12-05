@@ -1,4 +1,4 @@
-package com.adnanjelic.simpletvstreamingapp.shared.database.model
+package com.adnanjelic.simpletvstreamingapp.shared.storage.model
 
 import androidx.room.Embedded
 import androidx.room.Relation
