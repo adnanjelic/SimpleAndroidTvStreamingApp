@@ -67,6 +67,7 @@ dependencies {
     implementation(projects.featureHome.presentation)
     implementation(projects.featureHome.ui)
     implementation(projects.featureMovieDetails.ui)
+    implementation(projects.featureMovieDetails.presentation)
     implementation(projects.architecture.domain)
 
     // AndroidX

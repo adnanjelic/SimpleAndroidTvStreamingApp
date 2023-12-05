@@ -28,6 +28,7 @@ dependencies {
     // Modules
     implementation(projects.theme)
     implementation(projects.architecture.ui)
+    implementation(projects.featureMovieDetails.presentation)
     implementation(projects.architecture.presentation)
 
     // DI
