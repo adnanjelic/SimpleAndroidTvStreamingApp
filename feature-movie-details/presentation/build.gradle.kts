@@ -23,6 +23,7 @@ dependencies {
     implementation(projects.architecture.presentation)
     implementation(projects.architecture.domain)
     implementation(projects.featureMovieDetails.domain)
+    implementation(projects.shared.navigation)
 
     testImplementation(libs.test.junit)
 }
