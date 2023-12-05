@@ -70,6 +70,7 @@ dependencies {
     implementation(projects.featureMovieDetails.presentation)
     implementation(projects.featureMovieDetails.domain)
     implementation(projects.featureMovieDetails.data)
+    implementation(projects.featureMovieDetails.datasource)
     implementation(projects.architecture.domain)
     implementation(projects.shared.navigation)
 

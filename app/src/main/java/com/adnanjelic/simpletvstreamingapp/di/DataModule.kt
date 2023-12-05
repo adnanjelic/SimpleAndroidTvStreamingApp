@@ -14,7 +14,10 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.local.mapper.M
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.HomeInfoRemoteSourceImpl
 import com.adnanjelic.simpletvstreamingapp.featurehome.datasource.remote.mapper.CategoryApiToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.domain.repository.HomeInfoRepository
+import com.adnanjelic.simpletvstreamingapp.moviedetails.data.datasource.MovieDetailsLocalSource
+import com.adnanjelic.simpletvstreamingapp.moviedetails.data.mapper.MovieDetailsDataToDomainModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.data.repository.MovieDetailsRepositoryImpl
+import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDetailsLocalSourceImpl
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import dagger.Module
 import dagger.Provides
@@ -62,8 +65,11 @@ object DataModule {
     ).build()
 
     @Provides
-    fun providesMovieDetailsRepository(
-    ): MovieDetailsRepository = MovieDetailsRepositoryImpl(
+    fun providesMovieDetailsLocalSource(): MovieDetailsLocalSource = MovieDetailsLocalSourceImpl()
 
-    )
+    @Provides
+    fun providesMovieDetailsRepository(
+        localSource: MovieDetailsLocalSource,
+        movieDetailsMapper: MovieDetailsDataToDomainModelMapper
+    ): MovieDetailsRepository = MovieDetailsRepositoryImpl(localSource, movieDetailsMapper)
 }
