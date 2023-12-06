@@ -6,14 +6,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.tv.material3.ExperimentalTvMaterial3Api
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
 import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.VideoPlayerViewModel
 import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.model.VideoPlayerViewState.Loaded
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.component.VideoPlayer
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerScreenDependencies
 
-@OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun VideoPlayerScreen(
     dependencies: VideoPlayerScreenDependencies,
