@@ -100,33 +100,6 @@ dependencies {
     implementation(libs.androidx.tv.foundation)
     implementation(libs.androidx.tv.material)
 
-    // Coil
-    implementation(libs.coil.compose)
-
-    // Testing
-    testImplementation(libs.test.junit)
-    testImplementation(libs.test.mockito.kotlin)
-
     // Storage
     implementation(libs.androidx.room.ktx)
-
-    // Networking
-    implementation(libs.bundles.retrofit)
-    implementation(libs.moshi.kotlin)
-
-    kspAndroidTest(libs.hilt.android.compiler)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.espresso.intents)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.test.compose.ui.junit4)
-    androidTestImplementation(libs.test.android.hilt)
-    androidTestImplementation(libs.test.mockito)
-    androidTestImplementation(libs.test.mockito.kotlin)
-    androidTestImplementation(libs.test.mockito.android)
-
-    // Debug
-    debugImplementation(libs.debug.compose.ui.tooling)
-    debugImplementation(libs.debug.compose.ui.manifest)
 }

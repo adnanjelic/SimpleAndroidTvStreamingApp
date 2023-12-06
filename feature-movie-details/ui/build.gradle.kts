@@ -47,4 +47,8 @@ dependencies {
 
     // Coil
     implementation(libs.coil.compose)
+
+    // Debug
+    debugImplementation(libs.debug.compose.ui.tooling)
+    debugImplementation(libs.debug.compose.ui.manifest)
 }

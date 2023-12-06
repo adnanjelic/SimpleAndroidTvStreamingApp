@@ -49,4 +49,8 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.androidx.tv.foundation)
     implementation(libs.androidx.tv.material)
+
+    // Debug
+    debugImplementation(libs.debug.compose.ui.tooling)
+    debugImplementation(libs.debug.compose.ui.manifest)
 }
