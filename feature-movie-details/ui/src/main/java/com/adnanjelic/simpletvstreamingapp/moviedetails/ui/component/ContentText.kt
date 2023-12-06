@@ -9,6 +9,6 @@ import androidx.tv.material3.Text
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun ContentText(text: String, style: TextStyle = MaterialTheme.typography.bodyMedium) {
+internal fun ContentText(text: String, style: TextStyle = MaterialTheme.typography.bodyMedium) {
     Text(text = text, color = Color.White, style = style)
 }

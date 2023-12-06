@@ -10,7 +10,7 @@ import androidx.tv.material3.Text
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-fun Label(@StringRes textResourceId: Int) {
+internal fun Label(@StringRes textResourceId: Int) {
     Text(
         stringResource(id = textResourceId),
         color = Color.White,

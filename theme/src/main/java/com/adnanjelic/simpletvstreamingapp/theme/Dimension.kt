@@ -9,10 +9,4 @@ object Dimension {
         val Default = 16.dp
         val Big = 24.dp
     }
-
-    object Elevation {
-        val Small = 2.dp
-        val Default = 4.dp
-        val Big = 8.dp
-    }
 }

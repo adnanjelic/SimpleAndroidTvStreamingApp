@@ -6,7 +6,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePr
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
 import javax.inject.Inject
 
-class HomeInfoPresentationDestinationToNavigationDestinationModelMapper @Inject constructor() :
+internal class HomeInfoPresentationDestinationToNavigationDestinationModelMapper @Inject constructor() :
     DestinationPresentationToNavigationMapper<HomePresentationDestination, NavigationDestination> {
 
     override fun toDestination(input: HomePresentationDestination) = when (input) {

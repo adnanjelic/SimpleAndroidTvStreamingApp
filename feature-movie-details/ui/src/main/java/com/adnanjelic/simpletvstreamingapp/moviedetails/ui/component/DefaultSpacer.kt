@@ -7,6 +7,6 @@ import androidx.compose.ui.Modifier
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @Composable
-fun DefaultSpacer() {
+internal fun DefaultSpacer() {
     Spacer(modifier = Modifier.size(Dimension.Padding.Default))
 }
