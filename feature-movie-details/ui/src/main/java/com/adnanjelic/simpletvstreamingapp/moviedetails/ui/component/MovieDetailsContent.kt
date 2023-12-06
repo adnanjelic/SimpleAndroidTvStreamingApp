@@ -2,12 +2,11 @@ package com.adnanjelic.simpletvstreamingapp.moviedetails.ui.component
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -31,47 +30,49 @@ internal fun MovieDetailsContent(
     if (movieDetails == null) return
 
     AnimatedVisibility(visible = isVisible) {
-        Box {
+        Row {
             AsyncImage(
+                modifier = Modifier.weight(1f),
                 model = movieDetails.posterUrl,
-                modifier = Modifier.fillMaxSize(),
                 contentDescription = movieDetails.title,
-                contentScale = ContentScale.Crop,
-                alignment = Alignment.TopCenter
+                contentScale = ContentScale.FillHeight
             )
-
-            Button(
-                modifier = Modifier.padding(Dimension.Padding.Big),
-                onClick = onNavigateBackSelected
-            ) {
-                Text(stringResource(id = R.string.back_label))
-            }
 
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(Dimension.Padding.Big),
-                verticalArrangement = Arrangement.Bottom
+                    .weight(1f)
+                    .padding(vertical = Dimension.Padding.Big)
             ) {
-                MovieAttributeRow(
-                    headerResourceId = R.string.title_label,
-                    text = movieDetails.title,
-                    textStyle = MaterialTheme.typography.bodyLarge
-                )
-                DefaultSpacer()
-                MovieAttributeRow(
-                    headerResourceId = R.string.duration_label,
-                    text = movieDetails.duration
-                )
-                MovieAttributeRow(
-                    headerResourceId = R.string.rating_label,
-                    text = movieDetails.rating
-                )
-                DefaultSpacer()
-                MovieDescription(text = movieDetails.description)
-                DefaultSpacer()
-                Button(onClick = { onPlayMovieSelected(movieDetails.id) }) {
-                    Text(stringResource(id = R.string.play_movie_label))
+                Button(onClick = onNavigateBackSelected) {
+                    Text(stringResource(id = R.string.back_label))
+                }
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .padding(end = Dimension.Padding.Big),
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+                    MovieAttributeRow(
+                        headerResourceId = R.string.title_label,
+                        text = movieDetails.title,
+                        textStyle = MaterialTheme.typography.bodyLarge
+                    )
+                    DefaultSpacer()
+                    MovieAttributeRow(
+                        headerResourceId = R.string.duration_label,
+                        text = movieDetails.duration
+                    )
+                    MovieAttributeRow(
+                        headerResourceId = R.string.rating_label,
+                        text = movieDetails.rating
+                    )
+                    DefaultSpacer()
+                    MovieDescription(text = movieDetails.description)
+                    DefaultSpacer()
+                    Button(onClick = { onPlayMovieSelected(movieDetails.id) }) {
+                        Text(stringResource(id = R.string.play_movie_label))
+                    }
                 }
             }
         }
