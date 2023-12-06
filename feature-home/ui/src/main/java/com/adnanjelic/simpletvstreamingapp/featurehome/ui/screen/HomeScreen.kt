@@ -10,12 +10,12 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.HomeViewMode
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomeViewState
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.HomeContent
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.ProgressIndicator
-import com.adnanjelic.simpletvstreamingapp.featurehome.ui.di.HomeDependencies
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
 
 @Composable
 fun HomeScreen(
-    dependencies: HomeDependencies,
+    dependencies: HomeScreenDependencies,
     viewModel: HomeViewModel = hiltViewModel(),
     onNavigation: (NavigationDestination) -> Unit = {}
 ) {

@@ -7,7 +7,7 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsUiN
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsUiNotification.ErrorMessage
 import javax.inject.Inject
 
-internal class MovieDetailsNotificationPresentationToUiModelMapper @Inject constructor() :
+class MovieDetailsNotificationPresentationToUiModelMapper @Inject constructor() :
     PresentationToUiNotificationMapper<MovieDetailsPresentationNotification, MovieDetailsUiNotification> {
 
     override fun toUi(input: MovieDetailsPresentationNotification) = when (input) {

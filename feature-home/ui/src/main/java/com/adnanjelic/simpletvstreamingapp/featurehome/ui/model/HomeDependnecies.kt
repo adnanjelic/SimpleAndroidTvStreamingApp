@@ -1,13 +1,11 @@
-package com.adnanjelic.simpletvstreamingapp.featurehome.ui.di
+package com.adnanjelic.simpletvstreamingapp.featurehome.ui.model
 
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.CategoryPresentationToUiModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.HomeInfoPresentationDestinationToNavigationDestinationModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.HomeNotificationPresentationToUiModelMapper
-import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.MoviePresentationToUiModelMapper
 import javax.inject.Inject
 
-class HomeDependencies @Inject constructor(
-    val movieMapper: MoviePresentationToUiModelMapper,
+class HomeScreenDependencies @Inject constructor(
     val categoriesMapper: CategoryPresentationToUiModelMapper,
     val destinationMapper: HomeInfoPresentationDestinationToNavigationDestinationModelMapper,
     val notificationMapper: HomeNotificationPresentationToUiModelMapper

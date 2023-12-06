@@ -1,0 +1,12 @@
+package com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model
+
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.mapper.MovieDetailsNotificationPresentationToUiModelMapper
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.mapper.MovieDetailsPresentationDestinationToNavigationDestinationModelMapper
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.mapper.MovieDetailsPresentationToUiModelMapper
+import javax.inject.Inject
+
+class MovieDetailsScreenDependencies @Inject constructor(
+    val movieDetailsMapper: MovieDetailsPresentationToUiModelMapper,
+    val destinationMapper: MovieDetailsPresentationDestinationToNavigationDestinationModelMapper,
+    val notificationMapper: MovieDetailsNotificationPresentationToUiModelMapper
+)

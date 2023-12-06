@@ -7,7 +7,7 @@ import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerUiNot
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerUiNotification.ErrorMessage
 import javax.inject.Inject
 
-internal class VideoPlayerNotificationPresentationToUiModelMapper @Inject constructor() :
+class VideoPlayerNotificationPresentationToUiModelMapper @Inject constructor() :
     PresentationToUiNotificationMapper<VideoPlayerPresentationNotification, VideoPlayerUiNotification> {
 
     override fun toUi(input: VideoPlayerPresentationNotification) = when (input) {

@@ -6,8 +6,9 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.adnanjelic.simpletvstreamingapp.featurehome.ui.di.HomeDependencies
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen.HomeScreen
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.screen.MovieDetailsScreen
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.NavigationConstants.MOVIE_ID_PARAMETER
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
@@ -16,12 +17,15 @@ import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDes
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination.MoviePlayer
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.Route
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.utils.addParameterValue
+import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.screen.VideoPlayerScreen
 
 @Composable
 internal fun SimpleTvStreamingAppNavHost(
     navHostController: NavHostController,
-    homeDependencies: HomeDependencies
+    homeDependencies: HomeScreenDependencies,
+    movieDetailsDependencies: MovieDetailsScreenDependencies,
+    videoPlayerScreenDependencies: VideoPlayerScreenDependencies
 ) {
     NavHost(
         navController = navHostController,
@@ -39,7 +43,10 @@ internal fun SimpleTvStreamingAppNavHost(
                 type = NavType.StringType
             })
         ) {
-            MovieDetailsScreen(onNavigation = { navHostController.navigate(it) })
+            MovieDetailsScreen(
+                dependencies = movieDetailsDependencies,
+                onNavigation = { navHostController.navigate(it) }
+            )
         }
         composable(
             route = Route.VideoPlayer.route,
@@ -47,7 +54,10 @@ internal fun SimpleTvStreamingAppNavHost(
                 type = NavType.StringType
             })
         ) {
-            VideoPlayerScreen(onNavigation = { navHostController.navigate(it) })
+            VideoPlayerScreen(
+                dependencies = videoPlayerScreenDependencies,
+                onNavigation = { navHostController.navigate(it) }
+            )
         }
     }
 }

@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.adnanjelic.simpletvstreamingapp.featurehome.ui.di.HomeDependencies
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeScreenDependencies
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.navigation.SimpleTvStreamingAppNavHost
 import com.adnanjelic.simpletvstreamingapp.theme.SimpleTvStreamingAppTheme
+import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerScreenDependencies
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -17,7 +19,13 @@ import javax.inject.Inject
 internal class MainActivity : ComponentActivity() {
 
     @Inject
-    lateinit var homeDependencies: HomeDependencies
+    lateinit var homeScreenDependencies: HomeScreenDependencies
+
+    @Inject
+    lateinit var movieDetailsScreenDependencies: MovieDetailsScreenDependencies
+
+    @Inject
+    lateinit var videoPlayerScreenDependencies: VideoPlayerScreenDependencies
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +35,9 @@ internal class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     SimpleTvStreamingAppNavHost(
                         navHostController = navController,
-                        homeDependencies = homeDependencies
+                        homeDependencies = homeScreenDependencies,
+                        movieDetailsDependencies = movieDetailsScreenDependencies,
+                        videoPlayerScreenDependencies = videoPlayerScreenDependencies
                     )
                 }
             }

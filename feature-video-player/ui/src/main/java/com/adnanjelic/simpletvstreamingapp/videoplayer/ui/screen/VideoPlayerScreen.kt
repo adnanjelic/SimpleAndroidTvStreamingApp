@@ -24,23 +24,18 @@ import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.VideoPlayerV
 import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.model.VideoPlayerViewState.Loaded
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.R
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.component.VideoPlayer
-import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.mapper.VideoPlayerNotificationPresentationToUiModelMapper
-import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.mapper.VideoPlayerPresentationDestinationToNavigationDestinationModelMapper
-import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.mapper.VideoPlayerPresentationToUiModelMapper
+import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.model.VideoPlayerScreenDependencies
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 fun VideoPlayerScreen(
+    dependencies: VideoPlayerScreenDependencies,
     viewModel: VideoPlayerViewModel = hiltViewModel(),
     onNavigation: (NavigationDestination) -> Unit = {}
 ) {
-    val videoInfoMapper = VideoPlayerPresentationToUiModelMapper()
-    val destinationMapper = VideoPlayerPresentationDestinationToNavigationDestinationModelMapper()
-    val notificationMapper = VideoPlayerNotificationPresentationToUiModelMapper()
-
     val viewState = viewModel.viewState.collectAsStateWithLifecycle()
     val videoInfo = (viewState.value as? Loaded)?.videoInfo?.let {
-        videoInfoMapper.toUi(it)
+        dependencies.videoInfoMapper.toUi(it)
     }
     val navigation = viewModel.navigationDestination.collectAsStateWithLifecycle(null)
     val notification = viewModel.notification.collectAsStateWithLifecycle(null)
@@ -62,12 +57,12 @@ fun VideoPlayerScreen(
     }
 
     navigation.value?.let {
-        val destination = destinationMapper.toDestination(it)
+        val destination = dependencies.destinationMapper.toDestination(it)
         onNavigation(destination)
     }
 
     notification.value?.let {
-        val uiNotification = notificationMapper.toUi(it)
+        val uiNotification = dependencies.notificationMapper.toUi(it)
         val context = LocalContext.current
         LaunchedEffect(key1 = uiNotification) {
             Toast.makeText(context, uiNotification.message, Toast.LENGTH_SHORT).show()
