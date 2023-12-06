@@ -48,7 +48,6 @@ fun SimpleTvStreamingAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
         content = content
     )
 }
