@@ -7,6 +7,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.HomeViewModel
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomeViewState
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.HomeContent
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.ProgressIndicator
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.CategoryPresentationToUiModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.HomeInfoPresentationDestinationToNavigationDestinationModelMapper
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.mapper.MoviePresentationToUiModelMapper
@@ -26,6 +27,8 @@ fun HomeScreen(
         (viewState.value as? HomeViewState.Loaded)?.homeInfo?.categories?.map(categoriesMapper::toUi)
     val navigation = viewModel.navigationDestination.collectAsStateWithLifecycle(null)
     val notification = viewModel.notification.collectAsStateWithLifecycle(null)
+
+    ProgressIndicator(isVisible = viewState.value == HomeViewState.Loading)
 
     HomeContent(
         isVisible = viewState.value is HomeViewState.Loaded,

@@ -21,9 +21,10 @@ class HomeViewModel @Inject constructor(
 ) : BaseViewModel<HomeViewState, HomePresentationNotification, HomePresentationDestination>(
     useCaseExecutor
 ) {
-    override val initialViewState = HomeViewState.Initial
+    override val initialViewState = HomeViewState.Loading
 
     init {
+        updateViewState(HomeViewState.Loading)
         loadData()
     }
 

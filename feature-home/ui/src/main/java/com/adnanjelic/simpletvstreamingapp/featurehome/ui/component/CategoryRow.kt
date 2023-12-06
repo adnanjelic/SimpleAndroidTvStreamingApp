@@ -27,6 +27,7 @@ internal fun CategoryRow(
         style = MaterialTheme.typography.headlineSmall,
         modifier = Modifier.padding(bottom = Dimension.Padding.Small)
     )
+
     TvLazyRow(
         modifier = Modifier.padding(bottom = Dimension.Padding.Big),
         horizontalArrangement = Arrangement.spacedBy(Dimension.Padding.Default)
