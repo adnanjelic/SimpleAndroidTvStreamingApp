@@ -20,8 +20,13 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDe
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import com.adnanjelic.simpletvstreamingapp.shared.storage.SimpleTvStreamingAppDatabase
+import com.adnanjelic.simpletvstreamingapp.shared.storage.dao.MoviesLocalSource
+import com.adnanjelic.simpletvstreamingapp.videoplayer.datasource.local.VideoPlayerLocalSourceImpl
+import com.adnanjelic.simpletvstreamingapp.videoplayer.datasource.local.mapper.MovieDbToVideoPlayerDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.videoplayer.domain.repository.VideoPlayerRepository
-import com.adnanjelic.simpletvstreamingapp.videoplayer.domain.repository.VideoPlayerRepositoryImplStub
+import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.data.datasource.VideoPlayerLocalSource
+import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.data.mapper.VideoPlayerDataToDomainModelMapper
+import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.data.repository.VideoPlayerRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -71,11 +76,15 @@ object DataModule {
         ).build()
 
     @Provides
+    fun providesMoviesLocalSource(storage: SimpleTvStreamingAppDatabase): MoviesLocalSource =
+        storage.movies()
+
+    @Provides
     fun providesMovieDetailsLocalSource(
-        storage: SimpleTvStreamingAppDatabase,
+        moviesLocalSource: MoviesLocalSource,
         movieDetailsMapper: MovieDetailsDbToDataModelMapper
     ): MovieDetailsLocalSource =
-        MovieDetailsLocalSourceImpl(storage.movies(), movieDetailsMapper)
+        MovieDetailsLocalSourceImpl(moviesLocalSource, movieDetailsMapper)
 
     @Provides
     fun providesMovieDetailsRepository(
@@ -84,6 +93,15 @@ object DataModule {
     ): MovieDetailsRepository = MovieDetailsRepositoryImpl(localSource, movieDetailsMapper)
 
     @Provides
+    fun providesVideoPlayerLocalSource(
+        moviesLocalSource: MoviesLocalSource,
+        videoPlayerDataMapper: MovieDbToVideoPlayerDataModelMapper
+    ): VideoPlayerLocalSource =
+        VideoPlayerLocalSourceImpl(moviesLocalSource, videoPlayerDataMapper)
+
+    @Provides
     fun providesVideoPlayerRepository(
-    ): VideoPlayerRepository = VideoPlayerRepositoryImplStub()
+        localSource: VideoPlayerLocalSource,
+        videoPlayerMapper: VideoPlayerDataToDomainModelMapper
+    ): VideoPlayerRepository = VideoPlayerRepositoryImpl(localSource, videoPlayerMapper)
 }

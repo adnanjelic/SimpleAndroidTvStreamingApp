@@ -51,7 +51,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
         duration = "2h 22m",
         rating = "9.3/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 2",
@@ -60,7 +60,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
         duration = "2h 55m",
         rating = "9.2/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 3",
@@ -69,7 +69,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
         duration = "2h 32m",
         rating = "9.0/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 4",
@@ -78,7 +78,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/v3KCBeX0CBlZnHZndimm7taYqwo.jpg",
         duration = "3h 22m",
         rating = "9.0/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 5",
@@ -87,7 +87,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg",
         duration = "1h 36m",
         rating = "9.0/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 6",
@@ -96,7 +96,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
         duration = "3h 15m",
         rating = "9.0/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 7",
@@ -105,7 +105,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
         duration = "3h 21m",
         rating = "9.0/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 8",
@@ -114,7 +114,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
         duration = "2h 34m",
         rating = "8.9/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 9",
@@ -123,7 +123,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
         duration = "2h 58m",
         rating = "8.8/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 10",
@@ -132,7 +132,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg",
         duration = "2h 58m",
         rating = "8.8/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 11",
@@ -141,7 +141,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
         duration = "2h 22m",
         rating = "8.8/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     ),
     MovieApiModel(
         id = "$categoryId 12",
@@ -150,7 +150,7 @@ private fun moviesForCategory(categoryId: String) = listOf(
         posterUrl = "https://www.themoviedb.org/t/p/w1280/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
         duration = "2h 19m",
         rating = "8.8/10",
-        trailerUrl = trailerUrls.random()
+        trailerUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     )
 )
 //private fun stubMovieApiModels(categoryId: Int) = (1..12).map { movieNumber ->
