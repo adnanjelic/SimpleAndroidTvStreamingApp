@@ -9,11 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.stringResource
-import androidx.tv.material3.Button
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
-import androidx.tv.material3.Text
 import coil.compose.AsyncImage
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.R
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsUiModel
@@ -43,9 +40,10 @@ internal fun MovieDetailsContent(
                     .weight(1f)
                     .padding(vertical = Dimension.Padding.Big)
             ) {
-                Button(onClick = onNavigateBackSelected) {
-                    Text(stringResource(id = R.string.back_label))
-                }
+                SelectableButton(
+                    textResourceId = R.string.back_label,
+                    onClick = onNavigateBackSelected
+                )
 
                 Column(
                     modifier = Modifier
@@ -70,9 +68,9 @@ internal fun MovieDetailsContent(
                     DefaultSpacer()
                     MovieDescription(text = movieDetails.description)
                     DefaultSpacer()
-                    Button(onClick = { onPlayMovieSelected(movieDetails.id) }) {
-                        Text(stringResource(id = R.string.play_movie_label))
-                    }
+                    SelectableButton(
+                        textResourceId = R.string.play_movie_label,
+                        onClick = { onPlayMovieSelected(movieDetails.id) })
                 }
             }
         }
