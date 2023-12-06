@@ -1,5 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.presentation
 
+import androidx.lifecycle.viewModelScope
 import com.adnanjelic.simpletvstreamingapp.architecture.domain.UseCaseExecutor
 import com.adnanjelic.simpletvstreamingapp.architecture.presentation.viewmodel.BaseViewModel
 import com.adnanjelic.simpletvstreamingapp.featurehome.domain.usecase.GetHomeInfoUseCase
@@ -10,6 +11,8 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePr
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomePresentationNotification
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.HomeViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,6 +29,10 @@ class HomeViewModel @Inject constructor(
     init {
         updateViewState(HomeViewState.Loading)
         loadData()
+        viewModelScope.launch {
+            delay(5000)
+            notify(HomePresentationNotification.UnknownError(Throwable()))
+        }
     }
 
     private fun loadData() {

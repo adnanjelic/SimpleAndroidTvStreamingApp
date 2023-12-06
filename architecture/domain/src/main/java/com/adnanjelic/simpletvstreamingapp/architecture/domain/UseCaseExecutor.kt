@@ -22,7 +22,7 @@ class UseCaseExecutor {
         try {
             useCase.execute(value, onResult)
         } catch (ignore: CancellationException) {
-        } catch (@Suppress("TooGenericExceptionCaught") throwable: Throwable) {
+        } catch (throwable: Throwable) {
             onException(
                 (throwable as? DomainException) ?: UnknownDomainException(throwable)
             )

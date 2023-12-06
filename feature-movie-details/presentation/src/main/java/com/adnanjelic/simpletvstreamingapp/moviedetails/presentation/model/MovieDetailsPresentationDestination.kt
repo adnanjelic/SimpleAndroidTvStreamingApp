@@ -1,6 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model
 
-import com.adnanjelic.simpletvstreamingapp.architecture.presentation.navigation.PresentationDestination
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationDestination
 
 sealed interface MovieDetailsPresentationDestination : PresentationDestination {
 

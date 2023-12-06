@@ -1,0 +1,3 @@
+package com.adnanjelic.simpletvstreamingapp.architecture.presentation.model
+
+interface PresentationDestination : PresentationModel

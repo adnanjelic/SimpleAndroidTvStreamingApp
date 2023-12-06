@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.adnanjelic.simpletvstreamingapp.architecture.domain.UseCaseExecutor
 import com.adnanjelic.simpletvstreamingapp.architecture.domain.exception.DomainException
 import com.adnanjelic.simpletvstreamingapp.architecture.domain.usecase.UseCase
-import com.adnanjelic.simpletvstreamingapp.architecture.presentation.navigation.PresentationDestination
-import com.adnanjelic.simpletvstreamingapp.architecture.presentation.notification.PresentationNotification
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationDestination
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationNotification
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

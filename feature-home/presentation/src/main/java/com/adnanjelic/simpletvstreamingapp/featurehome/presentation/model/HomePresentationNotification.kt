@@ -1,6 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model
 
-import com.adnanjelic.simpletvstreamingapp.architecture.presentation.notification.PresentationNotification
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationNotification
 
 sealed interface HomePresentationNotification : PresentationNotification {
 

@@ -1,6 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.moviedetails.presentation.model
 
-import com.adnanjelic.simpletvstreamingapp.architecture.presentation.notification.PresentationNotification
+import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.PresentationNotification
 
 sealed interface MovieDetailsPresentationNotification : PresentationNotification {
 
