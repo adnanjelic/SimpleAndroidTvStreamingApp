@@ -12,6 +12,6 @@ class CategoryDataToDomainModelMapper @Inject constructor(
     override fun toDomain(input: CategoryDataModel) = CategoryDomainModel(
         id = input.id,
         name = input.name,
-        items = input.items.map(movieMapper::toDomain)
+        movies = input.movies.map(movieMapper::toDomain)
     )
 }

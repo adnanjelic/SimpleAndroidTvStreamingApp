@@ -5,5 +5,5 @@ import com.adnanjelic.simpletvstreamingapp.architecture.data.model.DataModel
 data class CategoryDataModel(
     val id: String,
     val name: String,
-    val items: Collection<MovieDataModel>
+    val movies: Collection<MovieDataModel>
 ) : DataModel

@@ -5,5 +5,5 @@ import com.adnanjelic.simpletvstreamingapp.architecture.presentation.model.Prese
 data class CategoryPresentationModel(
     val id: String,
     val name: String,
-    val items: Collection<MoviePresentationModel>
+    val movies: Collection<MoviePresentationModel>
 ) : PresentationModel

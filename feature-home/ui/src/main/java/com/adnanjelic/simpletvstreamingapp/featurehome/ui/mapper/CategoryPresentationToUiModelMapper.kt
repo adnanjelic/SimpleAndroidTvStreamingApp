@@ -11,6 +11,6 @@ internal class CategoryPresentationToUiModelMapper @Inject constructor(private v
     override fun toUi(input: CategoryPresentationModel) = CategoryUiModel(
         id = input.id,
         name = input.name,
-        items = input.items.map(movieMapper::toUi)
+        movies = input.movies.map(movieMapper::toUi)
     )
 }

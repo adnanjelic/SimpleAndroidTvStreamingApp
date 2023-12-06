@@ -11,6 +11,6 @@ class CategoryApiToDataModelMapper @Inject constructor(private val movieMapper: 
     override fun toData(input: CategoryApiModel) = CategoryDataModel(
         id = input.id,
         name = input.name,
-        items = input.movies.map(movieMapper::toData)
+        movies = input.movies.map(movieMapper::toData)
     )
 }

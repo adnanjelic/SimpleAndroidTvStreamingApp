@@ -33,7 +33,7 @@ internal fun CategoryRow(
         modifier = Modifier.padding(bottom = Dimension.Padding.Small),
         horizontalArrangement = Arrangement.spacedBy(Dimension.Padding.Default)
     ) {
-        category.items.forEach {
+        category.movies.forEach {
             item(key = it.id) {
                 Column(
                     modifier = Modifier.size(100.dp, 200.dp),

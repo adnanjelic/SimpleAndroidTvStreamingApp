@@ -11,6 +11,6 @@ class CategoryWithMoviesDbToDataModelMapper @Inject constructor(private val movi
     override fun toData(input: CategoryWithMovies) = CategoryDataModel(
         id = input.category.id,
         name = input.category.name,
-        items = input.movies.map(movieMapper::toData)
+        movies = input.movies.map(movieMapper::toData)
     )
 }

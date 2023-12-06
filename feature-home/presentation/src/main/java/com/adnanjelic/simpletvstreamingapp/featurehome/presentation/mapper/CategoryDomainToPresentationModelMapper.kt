@@ -12,6 +12,6 @@ class CategoryDomainToPresentationModelMapper @Inject constructor(
     override fun toPresentation(input: CategoryDomainModel) = CategoryPresentationModel(
         id = input.id,
         name = input.name,
-        items = input.items.map(movieMapper::toPresentation)
+        movies = input.movies.map(movieMapper::toPresentation)
     )
 }

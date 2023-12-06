@@ -39,7 +39,7 @@ class HomeInfoLocalSourceImpl(
 
     private fun saveMovies(categories: Collection<CategoryDataModel>) {
         val movieDbModels = categories.flatMap { category ->
-            category.items.map { movie ->
+            category.movies.map { movie ->
                 val mapperInput = MovieDataToDbModelMapper.Params(
                     movie = movie,
                     categoryId = category.id
