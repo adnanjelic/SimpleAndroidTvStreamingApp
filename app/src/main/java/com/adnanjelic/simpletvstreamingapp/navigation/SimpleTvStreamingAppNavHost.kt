@@ -18,7 +18,7 @@ import com.adnanjelic.simpletvstreamingapp.shared.navigation.utils.addParameterV
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.screen.VideoPlayerScreen
 
 @Composable
-fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
+internal fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = Route.Home.route
