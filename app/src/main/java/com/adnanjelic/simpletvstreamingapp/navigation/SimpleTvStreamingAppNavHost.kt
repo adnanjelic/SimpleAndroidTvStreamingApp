@@ -15,6 +15,7 @@ import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDes
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination.MoviePlayer
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.Route
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.utils.addParameterValue
+import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.screen.VideoPlayerScreen
 
 @Composable
 fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
@@ -33,6 +34,14 @@ fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
         ) {
             MovieDetailsScreen(onNavigation = { navHostController.navigate(it) })
         }
+        composable(
+            route = Route.VideoPlayer.route,
+            arguments = listOf(navArgument(MOVIE_ID_PARAMETER) {
+                type = NavType.StringType
+            })
+        ) {
+            VideoPlayerScreen(onNavigation = { navHostController.navigate(it) })
+        }
     }
 }
 
@@ -47,10 +56,13 @@ private fun NavHostController.navigate(destination: NavigationDestination) {
                 )
             )
         }
-
         is MoviePlayer -> {
-            /** TODO() **/
+            navigate(
+                Route.VideoPlayer.route.addParameterValue(
+                    parameter = MOVIE_ID_PARAMETER,
+                    value = destination.movieId
+                )
+            )
         }
     }
-
 }

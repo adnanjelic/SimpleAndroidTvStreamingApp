@@ -9,5 +9,5 @@ sealed class Route(val route: String) {
 
     data object MovieDetails : Route("movieDetails".addParameter(MOVIE_ID_PARAMETER))
 
-    data object MoviePlayer : Route("moviePlayer".addParameter(MOVIE_ID_PARAMETER))
+    data object VideoPlayer : Route("videoPlayer".addParameter(MOVIE_ID_PARAMETER))
 }
