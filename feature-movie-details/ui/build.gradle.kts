@@ -48,6 +48,10 @@ dependencies {
     // Coil
     implementation(libs.coil.compose)
 
+    // Test
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
+
     // Debug
     debugImplementation(libs.debug.compose.ui.tooling)
     debugImplementation(libs.debug.compose.ui.manifest)

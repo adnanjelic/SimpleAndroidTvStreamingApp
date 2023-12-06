@@ -17,6 +17,10 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.hilt.android)
-    implementation(projects.architecture.domain)
     ksp(libs.hilt.android.compiler)
+
+    implementation(projects.architecture.domain)
+
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
 }

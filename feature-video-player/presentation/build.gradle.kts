@@ -26,4 +26,5 @@ dependencies {
     implementation(projects.featureVideoPlayer.domain)
 
     testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
 }

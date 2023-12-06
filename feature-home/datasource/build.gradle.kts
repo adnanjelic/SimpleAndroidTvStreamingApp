@@ -23,10 +23,6 @@ dependencies {
     implementation(projects.architecture.data)
     implementation(projects.shared.storage)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.moshi.kotlin)
-
     testImplementation(libs.test.junit)
     testImplementation(libs.test.mockito.kotlin)
 }

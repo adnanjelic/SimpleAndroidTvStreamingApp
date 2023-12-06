@@ -19,9 +19,9 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
-    implementation(projects.featureVideoPlayer.domain)
     implementation(projects.architecture.data)
     implementation(projects.architecture.domain)
+    implementation(projects.featureVideoPlayer.domain)
 
     testImplementation(libs.test.junit)
     testImplementation(libs.test.mockito.kotlin)

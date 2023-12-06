@@ -50,6 +50,10 @@ dependencies {
     implementation(libs.androidx.tv.foundation)
     implementation(libs.androidx.tv.material)
 
+    // Test
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
+
     // Debug
     debugImplementation(libs.debug.compose.ui.tooling)
     debugImplementation(libs.debug.compose.ui.manifest)

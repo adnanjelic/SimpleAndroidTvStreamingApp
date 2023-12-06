@@ -26,4 +26,5 @@ dependencies {
     implementation(projects.shared.navigation)
 
     testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
 }

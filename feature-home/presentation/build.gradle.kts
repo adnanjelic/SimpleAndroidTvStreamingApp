@@ -18,8 +18,12 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
     implementation(projects.architecture.presentation)
     implementation(projects.architecture.domain)
     implementation(projects.featureHome.domain)
-    ksp(libs.hilt.android.compiler)
+
+    testImplementation(libs.test.junit)
+    testImplementation(libs.test.mockito.kotlin)
 }
