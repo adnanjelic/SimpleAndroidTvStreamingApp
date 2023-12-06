@@ -26,7 +26,7 @@
       android:background="@color/exo_black_opacity_60"/>
 
   <ImageButton android:id="@+id/back_button"
-      android:src="@android:drawable/ic_media_previous"
+      android:src="@drawable/ic_back_arrow"
       android:layout_margin="32dp"
       style="@style/ExoStyledControls.Button.Center"/>
 
