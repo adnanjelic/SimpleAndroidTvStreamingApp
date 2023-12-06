@@ -61,6 +61,9 @@ dependencies {
 
     // Modules
     implementation(projects.theme)
+    implementation(projects.architecture.domain)
+    implementation(projects.shared.navigation)
+    implementation(projects.shared.storage)
     implementation(projects.featureHome.datasource)
     implementation(projects.featureHome.data)
     implementation(projects.featureHome.domain)
@@ -71,9 +74,7 @@ dependencies {
     implementation(projects.featureMovieDetails.domain)
     implementation(projects.featureMovieDetails.data)
     implementation(projects.featureMovieDetails.datasource)
-    implementation(projects.architecture.domain)
-    implementation(projects.shared.navigation)
-    implementation(projects.shared.storage)
+    implementation(projects.featureVideoPlayer.ui)
 
     // AndroidX
     implementation(libs.androidx.core.ktx)
