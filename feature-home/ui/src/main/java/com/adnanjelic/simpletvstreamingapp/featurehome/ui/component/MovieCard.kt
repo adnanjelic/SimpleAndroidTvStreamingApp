@@ -1,9 +1,11 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.ui.component
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import androidx.tv.material3.Card
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import coil.compose.AsyncImage
@@ -16,6 +18,7 @@ internal fun MovieCard(
     onMovieSelected: (String) -> Unit = {}
 ) {
     Card(
+        modifier = Modifier.height(150.dp),
         onClick = { onMovieSelected(movie.id) }
     ) {
         AsyncImage(
