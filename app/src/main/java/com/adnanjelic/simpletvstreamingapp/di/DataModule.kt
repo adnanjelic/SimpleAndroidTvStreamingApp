@@ -20,6 +20,8 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDe
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import com.adnanjelic.simpletvstreamingapp.shared.storage.SimpleTvStreamingAppDatabase
+import com.adnanjelic.simpletvstreamingapp.videoplayer.domain.repository.VideoPlayerRepository
+import com.adnanjelic.simpletvstreamingapp.videoplayer.domain.repository.VideoPlayerRepositoryImplStub
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -80,4 +82,8 @@ object DataModule {
         localSource: MovieDetailsLocalSource,
         movieDetailsMapper: MovieDetailsDataToDomainModelMapper
     ): MovieDetailsRepository = MovieDetailsRepositoryImpl(localSource, movieDetailsMapper)
+
+    @Provides
+    fun providesVideoPlayerRepository(
+    ): VideoPlayerRepository = VideoPlayerRepositoryImplStub()
 }

@@ -75,6 +75,8 @@ dependencies {
     implementation(projects.featureMovieDetails.data)
     implementation(projects.featureMovieDetails.datasource)
     implementation(projects.featureVideoPlayer.ui)
+    implementation(projects.featureVideoPlayer.presentation)
+    implementation(projects.featureVideoPlayer.domain)
 
     // AndroidX
     implementation(libs.androidx.core.ktx)

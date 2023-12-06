@@ -30,12 +30,17 @@ dependencies {
     implementation(projects.architecture.ui)
     implementation(projects.architecture.presentation)
     implementation(projects.shared.navigation)
+    implementation(projects.featureVideoPlayer.presentation)
 
     // DI
     implementation(libs.hilt.android)
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+
+    implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.media3.exoplayer)
 
     // Compose
     implementation(libs.compose.activity)
