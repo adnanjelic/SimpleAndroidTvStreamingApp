@@ -20,6 +20,8 @@ import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.MovieDe
 import com.adnanjelic.simpletvstreamingapp.moviedetails.datasource.local.mapper.MovieDetailsDbToDataModelMapper
 import com.adnanjelic.simpletvstreamingapp.moviedetails.domain.repository.MovieDetailsRepository
 import com.adnanjelic.simpletvstreamingapp.shared.storage.SimpleTvStreamingAppDatabase
+import com.adnanjelic.simpletvstreamingapp.shared.storage.dao.CategoriesLocalSource
+import com.adnanjelic.simpletvstreamingapp.shared.storage.dao.CategoriesWithMoviesLocalSource
 import com.adnanjelic.simpletvstreamingapp.shared.storage.dao.MoviesLocalSource
 import com.adnanjelic.simpletvstreamingapp.videoplayer.datasource.local.VideoPlayerLocalSourceImpl
 import com.adnanjelic.simpletvstreamingapp.videoplayer.datasource.local.mapper.MovieDbToVideoPlayerDataModelMapper
@@ -47,15 +49,29 @@ object DataModule {
     )
 
     @Provides
+    fun providesMoviesLocalSource(storage: SimpleTvStreamingAppDatabase): MoviesLocalSource =
+        storage.movies()
+
+    @Provides
+    fun providesCategoriesLocalSource(storage: SimpleTvStreamingAppDatabase): CategoriesLocalSource =
+        storage.categories()
+
+    @Provides
+    fun providesCategoriesWithMoviesLocalSource(storage: SimpleTvStreamingAppDatabase): CategoriesWithMoviesLocalSource =
+        storage.categoriesWithMovies()
+
+    @Provides
     fun providesHomeInfoLocalSource(
-        storage: SimpleTvStreamingAppDatabase,
+        moviesLocalSource: MoviesLocalSource,
+        categoriesLocalSource: CategoriesLocalSource,
+        categoriesWithMoviesLocalSource: CategoriesWithMoviesLocalSource,
         categoriesWithMoviesDbToDataMapper: CategoryWithMoviesDbToDataModelMapper,
         categoryDataToDbModelMapper: CategoryDataToDbModelMapper,
         movieDataToDbModelMapper: MovieDataToDbModelMapper
     ): HomeInfoLocalSource = HomeInfoLocalSourceImpl(
-        storage.movies(),
-        storage.categories(),
-        storage.categoriesWithMovies(),
+        moviesLocalSource,
+        categoriesLocalSource,
+        categoriesWithMoviesLocalSource,
         categoriesWithMoviesDbToDataMapper,
         categoryDataToDbModelMapper,
         movieDataToDbModelMapper
@@ -74,10 +90,6 @@ object DataModule {
             klass = SimpleTvStreamingAppDatabase::class.java,
             name = "SimpleTvStreamingAppDatabase"
         ).build()
-
-    @Provides
-    fun providesMoviesLocalSource(storage: SimpleTvStreamingAppDatabase): MoviesLocalSource =
-        storage.movies()
 
     @Provides
     fun providesMovieDetailsLocalSource(
