@@ -1,20 +1,18 @@
 package com.adnanjelic.simpletvstreamingapp.architecture.domain.usecase
 
-import com.adnanjelic.simpletvstreamingapp.architecture.domain.CoroutineContextProvider
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-abstract class RunOnceUseCase<REQUEST, RESULT>(
-    private val coroutineContextProvider: CoroutineContextProvider
-) : UseCase<REQUEST, RESULT> {
+abstract class RunOnceUseCase<REQUEST, RESULT> : UseCase<REQUEST, RESULT> {
 
     final override suspend fun execute(
         input: REQUEST,
         onResult: (RESULT) -> Unit
     ) {
-        val result = withContext(coroutineContextProvider.io) {
+        val result = withContext(Dispatchers.IO) {
             executeInBackground(input)
         }
-        withContext(coroutineContextProvider.main) {
+        withContext(Dispatchers.Main) {
             onResult(result)
         }
     }
