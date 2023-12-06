@@ -2,7 +2,7 @@ package com.adnanjelic.simpletvstreamingapp.featurehome.ui.model
 
 import com.adnanjelic.simpletvstreamingapp.architecture.ui.model.UiModel
 
-internal data class MovieUiModel(
+data class MovieUiModel(
     val id: String,
     val title: String,
     val posterUrl: String

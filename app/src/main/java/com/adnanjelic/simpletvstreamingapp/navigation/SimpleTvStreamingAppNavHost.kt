@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.di.HomeDependencies
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen.HomeScreen
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.screen.MovieDetailsScreen
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.NavigationConstants.MOVIE_ID_PARAMETER
@@ -18,13 +19,19 @@ import com.adnanjelic.simpletvstreamingapp.shared.navigation.utils.addParameterV
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.screen.VideoPlayerScreen
 
 @Composable
-internal fun SimpleTvStreamingAppNavHost(navHostController: NavHostController) {
+internal fun SimpleTvStreamingAppNavHost(
+    navHostController: NavHostController,
+    homeDependencies: HomeDependencies
+) {
     NavHost(
         navController = navHostController,
         startDestination = Route.Home.route
     ) {
         composable(route = Route.Home.route) {
-            HomeScreen(onNavigation = { navHostController.navigate(it) })
+            HomeScreen(
+                dependencies = homeDependencies,
+                onNavigation = { navHostController.navigate(it) }
+            )
         }
         composable(
             route = Route.MovieDetails.route,
@@ -56,6 +63,7 @@ private fun NavHostController.navigate(destination: NavigationDestination) {
                 )
             )
         }
+
         is MoviePlayer -> {
             navigate(
                 Route.VideoPlayer.route.addParameterValue(

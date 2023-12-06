@@ -7,7 +7,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeUiNotificati
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeUiNotification.ErrorMessage
 import javax.inject.Inject
 
-internal class HomeNotificationPresentationToUiModelMapper @Inject constructor() :
+class HomeNotificationPresentationToUiModelMapper @Inject constructor() :
     PresentationToUiNotificationMapper<HomePresentationNotification, HomeUiNotification> {
 
     override fun toUi(input: HomePresentationNotification) = when (input) {

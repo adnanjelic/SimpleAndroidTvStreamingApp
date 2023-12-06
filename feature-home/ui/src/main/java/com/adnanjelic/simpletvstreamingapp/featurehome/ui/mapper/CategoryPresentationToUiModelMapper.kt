@@ -5,7 +5,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.model.Catego
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
 import javax.inject.Inject
 
-internal class CategoryPresentationToUiModelMapper @Inject constructor(private val movieMapper: MoviePresentationToUiModelMapper) :
+class CategoryPresentationToUiModelMapper @Inject constructor(private val movieMapper: MoviePresentationToUiModelMapper) :
     PresentationToUiMapper<CategoryPresentationModel, CategoryUiModel> {
 
     override fun toUi(input: CategoryPresentationModel) = CategoryUiModel(
