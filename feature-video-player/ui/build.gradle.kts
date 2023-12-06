@@ -30,6 +30,7 @@ dependencies {
     implementation(projects.architecture.ui)
     implementation(projects.architecture.presentation)
     implementation(projects.shared.navigation)
+    implementation(projects.shared.ui)
     implementation(projects.featureVideoPlayer.presentation)
 
     // DI

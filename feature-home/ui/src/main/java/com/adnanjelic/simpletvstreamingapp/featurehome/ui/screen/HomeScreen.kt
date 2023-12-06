@@ -1,9 +1,6 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.ui.screen
 
-import android.widget.Toast
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.adnanjelic.simpletvstreamingapp.featurehome.presentation.HomeViewModel
@@ -12,6 +9,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.HomeContent
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.ProgressIndicator
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.HomeScreenDependencies
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.Notification
 
 @Composable
 fun HomeScreen(
@@ -40,9 +38,6 @@ fun HomeScreen(
 
     notification.value?.let {
         val uiNotification = dependencies.notificationMapper.toUi(it)
-        val context = LocalContext.current
-        LaunchedEffect(key1 = uiNotification) {
-            Toast.makeText(context, uiNotification.message, Toast.LENGTH_SHORT).show()
-        }
+        Notification(uiNotification.message)
     }
 }

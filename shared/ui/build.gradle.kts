@@ -9,7 +9,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.moviedetails.ui"
+    namespace = "com.adnanjelic.simpletvstreamingapp.shared.ui"
 
     buildFeatures {
         compose = true
@@ -25,33 +25,12 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    // Modules
-    implementation(projects.theme)
-    implementation(projects.architecture.ui)
-    implementation(projects.featureMovieDetails.presentation)
-    implementation(projects.architecture.presentation)
-    implementation(projects.shared.navigation)
-    implementation(projects.shared.ui)
-
-    // DI
-    implementation(libs.hilt.android)
-
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.lifecycle.runtime.compose)
-
     // Compose
     implementation(libs.compose.activity)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.androidx.tv.foundation)
     implementation(libs.androidx.tv.material)
-
-    // Coil
-    implementation(libs.coil.compose)
-
-    // Test
-    testImplementation(libs.test.junit)
-    testImplementation(libs.test.mockito.kotlin)
 
     // Debug
     debugImplementation(libs.debug.compose.ui.tooling)
