@@ -25,7 +25,7 @@ class VideoPlayerViewModel @Inject constructor(
 ) : BaseViewModel<VideoPlayerViewState, VideoPlayerPresentationNotification, VideoPlayerPresentationDestination>(
     useCaseExecutor
 ) {
-    override val initialViewState = VideoPlayerViewState.Loading
+    override val initialViewState = VideoPlayerViewState.Empty
 
     private val movieId: String = checkNotNull(savedStateHandle[MOVIE_ID_PARAMETER])
 

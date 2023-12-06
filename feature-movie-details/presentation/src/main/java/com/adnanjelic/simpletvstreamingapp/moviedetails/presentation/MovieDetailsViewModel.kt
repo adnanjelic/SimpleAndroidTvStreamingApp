@@ -26,7 +26,7 @@ class MovieDetailsViewModel @Inject constructor(
 ) : BaseViewModel<MovieDetailsViewState, MovieDetailsPresentationNotification, MovieDetailsPresentationDestination>(
     useCaseExecutor
 ) {
-    override val initialViewState = MovieDetailsViewState.Initial
+    override val initialViewState = MovieDetailsViewState.Empty
 
     private val movieId: String = checkNotNull(savedStateHandle[MOVIE_ID_PARAMETER])
 
