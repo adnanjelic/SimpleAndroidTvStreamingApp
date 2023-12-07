@@ -15,7 +15,7 @@ Each feature is implemented in 5 layers with Dependency Inversion between dataso
 - All layers have their own models and mappers to map them to/from other layers. 
 - Dependency Injection is provided by `Hilt`.
 - The lib dependencies are provided by the versions catalog.
-- All code should be tested, but for the showcase purpose, only the `GetHomeInfoUseCase` and `MovieDomainToPresentationModelMapper` classes are covered by `UnitTests` for now.
+- All code should be tested, but for the showcase purpose, only the `GetHomeInfoUseCase`, `HomeInfoRepositoryImpl` and `MovieDomainToPresentationModelMapper` classes are covered by `UnitTests` for now.
 
 ## Features and modules
 The idea is to have each feature as a separate set of modules (grouping feature layers in one module) for easier maintenance and easier integration into the app (or removing a feature completely).
