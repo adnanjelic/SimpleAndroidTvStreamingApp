@@ -31,8 +31,7 @@ The shared modules are exposed for all features to use them.
 
 ## Future plans
 1. Fix the bugs with item/content selection on home and movie details screen
-2. Fix the bug with an second time invocation of player overlay
-3. Make the navigation and notification code more abstract, simpler and reusable among features
-4. Cover the rest of the code with Unit and UI tests.
-5. Add `Compose` previews with data
-6. Add the app title to the launcher icon to make it easier to discover
+2. Make the navigation and notification code more abstract, simpler and reusable among features
+3. Cover the rest of the code with Unit and UI tests.
+4. Add `Compose` previews with data
+5. Add the app title to the launcher icon to make it easier to discover
