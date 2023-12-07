@@ -20,9 +20,9 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
+    implementation(projects.navigation)
     implementation(projects.architecture.presentation)
     implementation(projects.architecture.domain)
-    implementation(projects.shared.navigation)
     implementation(projects.featureVideoPlayer.domain)
 
     testImplementation(libs.test.junit)

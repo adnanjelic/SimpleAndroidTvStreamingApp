@@ -27,10 +27,10 @@ dependencies {
 
     // Modules
     implementation(projects.theme)
+    implementation(projects.navigation)
     implementation(projects.featureHome.presentation)
     implementation(projects.architecture.ui)
     implementation(projects.architecture.presentation)
-    implementation(projects.shared.navigation)
     implementation(projects.shared.ui)
 
     // DI

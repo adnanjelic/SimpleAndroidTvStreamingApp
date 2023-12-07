@@ -23,7 +23,7 @@ dependencies {
     implementation(projects.architecture.presentation)
     implementation(projects.architecture.domain)
     implementation(projects.featureMovieDetails.domain)
-    implementation(projects.shared.navigation)
+    implementation(projects.navigation)
 
     testImplementation(libs.test.junit)
     testImplementation(libs.test.mockito.kotlin)

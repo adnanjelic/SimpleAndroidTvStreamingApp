@@ -61,8 +61,8 @@ dependencies {
 
     // Modules
     implementation(projects.theme)
+    implementation(projects.navigation)
     implementation(projects.architecture.domain)
-    implementation(projects.shared.navigation)
     implementation(projects.shared.storage)
     implementation(projects.featureHome.datasource)
     implementation(projects.featureHome.data)
