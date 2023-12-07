@@ -11,9 +11,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.Lifecycle.Event.ON_PAUSE
+import androidx.lifecycle.Lifecycle.Event.ON_RESUME
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.media3.common.MediaItem
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 
 @OptIn(UnstableApi::class)
@@ -24,9 +29,11 @@ fun VideoPlayerExo(
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         val context = LocalContext.current
+        val lifecycleOwner = LocalLifecycleOwner.current
+
         val mediaItem = MediaItem.fromUri(videoUrl)
         val videoPlayer = remember {
-            androidx.media3.exoplayer.ExoPlayer
+            ExoPlayer
                 .Builder(context)
                 .build()
                 .apply {
@@ -35,9 +42,12 @@ fun VideoPlayerExo(
                     prepare()
                 }
         }
+
         val playerView = remember {
             PlayerView(context).apply {
                 findViewById<ImageButton>(R.id.back_button).setOnClickListener { onBackSelected() }
+                setShowPreviousButton(false)
+                setShowNextButton(false)
                 player = videoPlayer
                 requestFocus()
             }
@@ -50,8 +60,19 @@ fun VideoPlayerExo(
             factory = { playerView },
         )
 
-        DisposableEffect(Unit) {
+        DisposableEffect(lifecycleOwner) {
+            val observer = LifecycleEventObserver { _, event ->
+                when (event) {
+                    ON_RESUME -> videoPlayer.play()
+                    ON_PAUSE -> videoPlayer.pause()
+                    else -> {}
+                }
+            }
+
+            lifecycleOwner.lifecycle.addObserver(observer)
+
             onDispose {
+                lifecycleOwner.lifecycle.removeObserver(observer)
                 videoPlayer.release()
             }
         }
