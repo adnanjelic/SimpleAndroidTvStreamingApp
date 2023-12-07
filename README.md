@@ -1,11 +1,12 @@
 # SimpleAndroidTvStreamingApp
 
-### This is a simple TV streaming app for AndroidTV that shows and play movie content from HLS sources 
+This is a simple TV streaming app for AndroidTV that shows and play movie content from HLS sources.
+
 
 ## Architecture and patterns
 It is based on a **Clean Architecture**, **Coroutines**, **MVVM**, observable (**Flow**) and command patterns while following the **SOLID** principles and best practices.
 
-Each feature is implemented in 5 layers with Dependency Inversion: 
+Each feature is implemented in 5 layers with Dependency Inversion between datasource, data and domain layers (we can add to the presentation/domain layer as well in the future): 
 - `datasource` layer provides local (`Room`) or remote (stubbed API response in `HomeInfoRemoteSourceImpl` for now) data sources. Since the API layer is behind an interface, the real REST service could easily be added later on.
 - `data` layer holds the repositories and controls the data source flow. The data is provided from local source and if not found, updated from the remote service with `Flow`.
 - `domain` layer holds the business logic and entities (`UseCases` and Domain models), and is in the center of the architecture, so it does not depend on any other module but `architecture`. The `domain` layer also controls the thread switching (main -> async -> main).  
