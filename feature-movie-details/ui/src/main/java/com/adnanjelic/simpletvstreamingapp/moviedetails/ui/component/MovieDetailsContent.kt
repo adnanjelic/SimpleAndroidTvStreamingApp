@@ -7,7 +7,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.ContentScale
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
@@ -26,6 +30,7 @@ internal fun MovieDetailsContent(
 ) {
     if (movieDetails == null) return
 
+    val playButtonRequester = remember { FocusRequester() }
     AnimatedVisibility(visible = isVisible) {
         Row {
             AsyncImage(
@@ -69,10 +74,15 @@ internal fun MovieDetailsContent(
                     MovieDescription(text = movieDetails.description)
                     DefaultSpacer()
                     SelectableButton(
+                        modifier = Modifier.focusRequester(playButtonRequester),
                         textResourceId = R.string.play_movie_label,
                         onClick = { onPlayMovieSelected(movieDetails.id) })
                 }
             }
+        }
+
+        LaunchedEffect(Unit) {
+            playButtonRequester.requestFocus()
         }
     }
 }
