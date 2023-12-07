@@ -14,11 +14,12 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.MovieUiModel
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
 internal fun MovieCard(
+    modifier: Modifier = Modifier,
     movie: MovieUiModel,
     onMovieSelected: (String) -> Unit = {}
 ) {
     Card(
-        modifier = Modifier.height(150.dp),
+        modifier = modifier.height(150.dp),
         onClick = { onMovieSelected(movie.id) }
     ) {
         AsyncImage(

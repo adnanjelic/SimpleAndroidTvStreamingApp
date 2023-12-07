@@ -30,8 +30,7 @@ The shared modules are exposed for all features to use them.
 2. `architecture`, `navigation` and `theme` modules are at a root level to be shared with all modules in the project
 
 ## Future plans
-1. Fix the bugs with item/content selection on home and movie details screen
-2. Make the navigation and notification code more abstract, simpler and reusable among features
-3. Cover the rest of the code with Unit and UI tests.
-4. Add `Compose` previews with data
-5. Add the app title to the launcher icon to make it easier to discover
+1. Make the navigation and notification code more abstract, simpler and reusable among features
+2. Cover the rest of the code with Unit and UI tests.
+3. Add `Compose` previews with data
+4. Add the app title to the launcher icon to make it easier to discover
