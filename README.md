@@ -23,7 +23,7 @@ The idea is to have each feature as a separate set of modules (grouping feature 
 There are 3 features/screens modules:
 1. **Home** - Home screen with 6 category rows and 12 movies per category. Each movie has an unique id, but since the content is stubbed (there are 12 stubbed movies in the remote source), for faster implementation, they are shared among all categories (the movie order is randomized for each category).
 2. **Movie Details** - Shows the details of a selected movie with poster, title, duration, rating, description, button to initiate the playback, and a button to go to the previous screen.
-3. **Video Player** - Plays the video with progress info and standard controls. Additionally, there is a back button to go to the previous screen.
+3. **Video Player** - Plays the video with progress info and standard controls. Additionally, there is a back button to go to the previous screen. It uses an external module player so it is easier to change in the future. 
 
 The shared modules are exposed for all features to use them.
 1. `feature-shared` module contains specific `submodules` to be shared among features
@@ -32,8 +32,7 @@ The shared modules are exposed for all features to use them.
 ## Future plans
 1. Fix the bugs with item/content selection on home and movie details screen
 2. Fix the bug with an second time invocation of player overlay
-3. Export the `VideoPlayer` to a shared module and abstract it to hide the implementation and make it easier to change in the future
-4. Make the navigation and notification code more abstract, simpler and reusable among features
-5. Cover the rest of the code with Unit and UI tests.
-6. Add `Compose` previews with data
-7. Add the app title to the launcher icon to make it easier to discover
+3. Make the navigation and notification code more abstract, simpler and reusable among features
+4. Cover the rest of the code with Unit and UI tests.
+5. Add `Compose` previews with data
+6. Add the app title to the launcher icon to make it easier to discover

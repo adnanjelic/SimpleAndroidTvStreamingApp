@@ -9,7 +9,7 @@ apply {
 }
 
 android {
-    namespace = "com.adnanjelic.simpletvstreamingapp.videoplayer.ui"
+    namespace = "com.adnanjelic.simpletvstreamingapp.videoplayerexo"
 
     buildFeatures {
         compose = true
@@ -25,20 +25,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    // Modules
-    implementation(projects.theme)
-    implementation(projects.navigation)
-    implementation(projects.architecture.ui)
-    implementation(projects.architecture.presentation)
-    implementation(projects.shared.ui)
-    implementation(projects.shared.videoPlayerExo)
-    implementation(projects.featureVideoPlayer.presentation)
-
-    // DI
-    implementation(libs.hilt.android)
-
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.exoplayer.hls)
 
     // Compose
     implementation(libs.compose.activity)
@@ -46,10 +36,6 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.androidx.tv.foundation)
     implementation(libs.androidx.tv.material)
-
-    // Test
-    testImplementation(libs.test.junit)
-    testImplementation(libs.test.mockito.kotlin)
 
     // Debug
     debugImplementation(libs.debug.compose.ui.tooling)

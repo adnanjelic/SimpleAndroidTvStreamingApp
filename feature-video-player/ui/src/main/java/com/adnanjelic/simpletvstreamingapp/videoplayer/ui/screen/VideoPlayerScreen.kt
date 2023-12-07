@@ -1,12 +1,10 @@
 package com.adnanjelic.simpletvstreamingapp.videoplayer.ui.screen
 
-import android.widget.Toast
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.adnanjelic.simpletvstreamingapp.shared.navigation.model.NavigationDestination
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.Notification
 import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.VideoPlayerViewModel
 import com.adnanjelic.simpletvstreamingapp.videoplayer.presentation.model.VideoPlayerViewState.Loaded
 import com.adnanjelic.simpletvstreamingapp.videoplayer.ui.component.VideoPlayer
@@ -39,9 +37,6 @@ fun VideoPlayerScreen(
 
     notification.value?.let {
         val uiNotification = dependencies.notificationMapper.toUi(it)
-        val context = LocalContext.current
-        LaunchedEffect(key1 = uiNotification) {
-            Toast.makeText(context, uiNotification.message, Toast.LENGTH_SHORT).show()
-        }
+        Notification(message = uiNotification.message)
     }
 }
