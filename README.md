@@ -26,7 +26,7 @@ There are 3 features/screens modules:
 3. **Video Player** - Plays the video with progress info and standard controls. Additionally, there is a back button to go to the previous screen. It uses an external module player so it is easier to change in the future. 
 
 The shared modules are exposed for all features to use them.
-1. `feature-shared` module contains specific `submodules` to be shared among features
+1. `shared` module contains specific `submodules` to be shared among features
 2. `architecture`, `navigation` and `theme` modules are at a root level to be shared with all modules in the project
 
 ## Future plans

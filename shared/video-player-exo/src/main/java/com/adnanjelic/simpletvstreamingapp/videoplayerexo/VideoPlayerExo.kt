@@ -2,6 +2,7 @@ package com.adnanjelic.simpletvstreamingapp.videoplayerexo
 
 import android.widget.ImageButton
 import androidx.annotation.OptIn
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -43,7 +44,9 @@ fun VideoPlayerExo(
         }
 
         AndroidView(
-            modifier = Modifier.onKeyEvent { playerView.dispatchKeyEvent(it.nativeKeyEvent) },
+            modifier = Modifier
+                .focusable()
+                .onKeyEvent { playerView.dispatchKeyEvent(it.nativeKeyEvent) },
             factory = { playerView },
         )
 
