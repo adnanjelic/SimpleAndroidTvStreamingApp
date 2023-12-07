@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
+import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.R
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.DarkBackgroundPreview
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -27,4 +29,10 @@ internal fun MovieAttributeRow(
 
         ContentText(text = text, style = textStyle)
     }
+}
+
+@DarkBackgroundPreview
+@Composable
+private fun MovieAttributeRowPreview() {
+    MovieAttributeRow(R.string.title_label, "The Dark Knight")
 }

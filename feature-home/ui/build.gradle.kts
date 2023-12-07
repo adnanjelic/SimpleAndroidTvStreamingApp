@@ -40,7 +40,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Compose
-    implementation(libs.compose.activity)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.androidx.tv.foundation)

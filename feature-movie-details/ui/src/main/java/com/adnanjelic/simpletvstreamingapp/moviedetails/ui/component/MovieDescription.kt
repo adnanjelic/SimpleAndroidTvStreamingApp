@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.R
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.DarkBackgroundPreview
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @Composable
@@ -19,3 +20,9 @@ internal fun MovieDescription(text: String) {
         ContentText(text)
     }
 }
+
+@DarkBackgroundPreview
+@Composable
+private fun MovieDescriptionPreview() {
+    MovieDescription("Some long long text description")
+}  

@@ -18,6 +18,7 @@ import androidx.tv.material3.MaterialTheme
 import coil.compose.AsyncImage
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.R
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsUiModel
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.DarkBackgroundPreview
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -25,8 +26,8 @@ import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 internal fun MovieDetailsContent(
     isVisible: Boolean,
     movieDetails: MovieDetailsUiModel?,
-    onNavigateBackSelected: () -> Unit = {},
-    onPlayMovieSelected: (String) -> Unit = {}
+    onNavigateBackSelected: () -> Unit,
+    onPlayMovieSelected: (String) -> Unit
 ) {
     if (movieDetails == null) return
 
@@ -85,4 +86,22 @@ internal fun MovieDetailsContent(
             playButtonRequester.requestFocus()
         }
     }
+}
+
+@DarkBackgroundPreview
+@Composable
+private fun MovieDetailsContentPreview() {
+    MovieDetailsContent(
+        isVisible = true,
+        movieDetails = MovieDetailsUiModel(
+            id = "1",
+            title = "The Dark Knight",
+            description = "Movie description, some long long text",
+            posterUrl = "",
+            duration = "1h 22m",
+            rating = "9.2/10"
+        ),
+        onNavigateBackSelected = {},
+        onPlayMovieSelected = {}
+    )
 }

@@ -32,5 +32,4 @@ The shared modules are exposed for all features to use them.
 ## Future plans
 1. Make the navigation and notification code more abstract, simpler and reusable among features
 2. Cover the rest of the code with Unit and UI tests.
-3. Add `Compose` previews with data
-4. Add the app title to the launcher icon to make it easier to discover
+3. Add the app title to the launcher icon to make it easier to discover

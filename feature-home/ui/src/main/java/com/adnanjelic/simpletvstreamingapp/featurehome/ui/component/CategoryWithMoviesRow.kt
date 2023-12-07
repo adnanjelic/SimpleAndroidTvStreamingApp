@@ -14,16 +14,18 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.tv.foundation.lazy.list.TvLazyRow
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
+import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.stub.CategoryStub1
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
-internal fun CategoryWithMovies(
+internal fun CategoryWithMoviesRow(
     category: CategoryUiModel,
     onMovieFocused: (String) -> Unit,
     onMovieSelected: (String) -> Unit,
@@ -65,4 +67,10 @@ internal fun CategoryWithMovies(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun CategoryWithMoviesRowPreview() {
+    CategoryWithMoviesRow(CategoryStub1, {}, {}, mutableMapOf())
 }
