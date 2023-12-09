@@ -1,7 +1,7 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.ui.component
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -21,7 +21,8 @@ import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.stub.CategoryStub1
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
-import com.adnanjelic.simpletvstreamingapp.theme.Dimension
+import com.adnanjelic.simpletvstreamingapp.theme.Dimension.Padding.Default
+import com.adnanjelic.simpletvstreamingapp.theme.Dimension.Padding.Small
 
 @OptIn(ExperimentalTvMaterial3Api::class)
 @Composable
@@ -34,17 +35,17 @@ internal fun CategoryWithMoviesRow(
     Text(
         text = category.name,
         style = MaterialTheme.typography.headlineSmall,
-        modifier = Modifier.padding(bottom = Dimension.Padding.Small)
+        modifier = Modifier.padding(bottom = Small, start = Default)
     )
 
-    TvLazyRow(
-        modifier = Modifier.padding(bottom = Dimension.Padding.Small),
-        horizontalArrangement = Arrangement.spacedBy(Dimension.Padding.Default)
-    ) {
+    TvLazyRow {
         category.movies.forEach { movie ->
             item(key = movie.id) {
                 val focusRequester = remember { FocusRequester() }
                 focusRequesters[movie.id] = focusRequester
+
+                Spacer(modifier = Modifier.size(Default))
+
                 Column(
                     modifier = Modifier.size(100.dp, 200.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -57,7 +58,7 @@ internal fun CategoryWithMoviesRow(
                         onMovieSelected = onMovieSelected
                     )
                     Text(
-                        modifier = Modifier.padding(top = Dimension.Padding.Small),
+                        modifier = Modifier.padding(top = Small),
                         text = movie.title,
                         textAlign = TextAlign.Center,
                         style = MaterialTheme.typography.bodySmall,

@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.foundation.lazy.list.TvLazyColumn
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.stub.CategoriesStub
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
-import com.adnanjelic.simpletvstreamingapp.theme.Dimension
+import com.adnanjelic.simpletvstreamingapp.theme.Dimension.Padding.Default
 
 @Composable
 internal fun HomeContent(
@@ -31,7 +31,7 @@ internal fun HomeContent(
         TvLazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = Dimension.Padding.Big)
+                .padding(start = Default)
         ) {
             categoriesWithMovies.forEach { category ->
                 item(key = category.id) {
