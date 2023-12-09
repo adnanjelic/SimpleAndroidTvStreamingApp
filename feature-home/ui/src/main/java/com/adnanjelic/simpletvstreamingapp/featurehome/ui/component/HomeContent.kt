@@ -28,7 +28,7 @@ internal fun HomeContent(
         var lastFocusedMovieId by rememberSaveable { mutableStateOf("") }
 
         TvLazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(items = categoriesWithMovies, key = { it.id }) { category ->
+            items(items = categoriesWithMovies, key = { category -> category.id }) { category ->
                 CategoryWithMoviesRow(
                     category = category,
                     onMovieFocused = { lastFocusedMovieId = it },

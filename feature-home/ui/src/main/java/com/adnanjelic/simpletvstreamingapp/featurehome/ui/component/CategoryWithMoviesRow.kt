@@ -34,7 +34,7 @@ internal fun CategoryWithMoviesRow(
         )
 
         TvLazyRow {
-            items(items = category.movies, key = null) { movie ->
+            items(items = category.movies, key = { movie -> movie.id }) { movie ->
                 val focusRequester = remember { FocusRequester() }
                 focusRequesters[movie.id] = focusRequester
 
