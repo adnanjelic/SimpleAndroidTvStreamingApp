@@ -13,13 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.foundation.lazy.list.TvLazyColumn
+import androidx.tv.foundation.lazy.list.items
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.stub.CategoriesStub
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.CategoryUiModel
 
 @Composable
 internal fun HomeContent(
     isVisible: Boolean,
-    categoriesWithMovies: Collection<CategoryUiModel>,
+    categoriesWithMovies: List<CategoryUiModel>,
     onMovieSelected: (String) -> Unit
 ) {
     AnimatedVisibility(visible = isVisible) {
@@ -27,15 +28,13 @@ internal fun HomeContent(
         var lastFocusedMovieId by rememberSaveable { mutableStateOf("") }
 
         TvLazyColumn(modifier = Modifier.fillMaxSize()) {
-            categoriesWithMovies.forEach { category ->
-                item(key = category.id) {
-                    CategoryWithMoviesRow(
-                        category = category,
-                        onMovieFocused = { lastFocusedMovieId = it },
-                        onMovieSelected = onMovieSelected,
-                        focusRequesters = focusRequesters
-                    )
-                }
+            items(items = categoriesWithMovies, key = { it.id }) { category ->
+                CategoryWithMoviesRow(
+                    category = category,
+                    onMovieFocused = { lastFocusedMovieId = it },
+                    onMovieSelected = onMovieSelected,
+                    focusRequesters = focusRequesters
+                )
             }
         }
 

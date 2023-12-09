@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.foundation.lazy.list.TvLazyRow
+import androidx.tv.foundation.lazy.list.items
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
 import com.adnanjelic.simpletvstreamingapp.featurehome.ui.component.stub.CategoryStub1
@@ -33,20 +34,18 @@ internal fun CategoryWithMoviesRow(
         )
 
         TvLazyRow {
-            category.movies.forEach { movie ->
-                item(key = movie.id) {
-                    val focusRequester = remember { FocusRequester() }
-                    focusRequesters[movie.id] = focusRequester
+            items(items = category.movies, key = null) { movie ->
+                val focusRequester = remember { FocusRequester() }
+                focusRequesters[movie.id] = focusRequester
 
-                    Spacer(Default)
+                Spacer(Default)
 
-                    MovieItem(
-                        movie = movie,
-                        focusRequester = focusRequester,
-                        onMovieFocused = onMovieFocused,
-                        onMovieSelected = onMovieSelected
-                    )
-                }
+                MovieItem(
+                    movie = movie,
+                    focusRequester = focusRequester,
+                    onMovieFocused = onMovieFocused,
+                    onMovieSelected = onMovieSelected
+                )
             }
         }
     }
