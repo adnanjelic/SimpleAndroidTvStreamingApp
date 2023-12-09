@@ -1,21 +1,14 @@
 package com.adnanjelic.simpletvstreamingapp.featurehome.ui.component
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.tv.foundation.lazy.list.TvLazyRow
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import androidx.tv.material3.MaterialTheme
@@ -46,25 +39,12 @@ internal fun CategoryWithMoviesRow(
 
                 Spacer(modifier = Modifier.size(Default))
 
-                Column(
-                    modifier = Modifier.size(100.dp, 200.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    MovieCard(
-                        modifier = Modifier
-                            .focusRequester(focusRequester)
-                            .onFocusChanged { if (it.hasFocus) onMovieFocused(movie.id) },
-                        movie = movie,
-                        onMovieSelected = onMovieSelected
-                    )
-                    Text(
-                        modifier = Modifier.padding(top = Small),
-                        text = movie.title,
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.bodySmall,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
+                MovieItem(
+                    movie = movie,
+                    focusRequester = focusRequester,
+                    onMovieFocused = onMovieFocused,
+                    onMovieSelected = onMovieSelected
+                )
             }
         }
     }
