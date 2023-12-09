@@ -19,6 +19,7 @@ import coil.compose.AsyncImage
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.R
 import com.adnanjelic.simpletvstreamingapp.moviedetails.ui.model.MovieDetailsUiModel
 import com.adnanjelic.simpletvstreamingapp.shared.ui.component.DarkBackgroundPreview
+import com.adnanjelic.simpletvstreamingapp.shared.ui.component.Spacer
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @OptIn(ExperimentalTvMaterial3Api::class)
@@ -62,7 +63,7 @@ internal fun MovieDetailsContent(
                         text = movieDetails.title,
                         textStyle = MaterialTheme.typography.bodyLarge
                     )
-                    DefaultSpacer()
+                    Spacer()
                     MovieAttributeRow(
                         headerResourceId = R.string.duration_label,
                         text = movieDetails.duration
@@ -71,9 +72,9 @@ internal fun MovieDetailsContent(
                         headerResourceId = R.string.rating_label,
                         text = movieDetails.rating
                     )
-                    DefaultSpacer()
+                    Spacer()
                     MovieDescription(text = movieDetails.description)
-                    DefaultSpacer()
+                    Spacer()
                     SelectableButton(
                         modifier = Modifier.focusRequester(playButtonRequester),
                         textResourceId = R.string.play_movie_label,

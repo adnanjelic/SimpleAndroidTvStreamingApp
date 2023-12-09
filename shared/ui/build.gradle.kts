@@ -25,6 +25,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
+    implementation(projects.theme)
+
     // Compose
     implementation(libs.compose.activity)
     implementation(platform(libs.compose.bom))

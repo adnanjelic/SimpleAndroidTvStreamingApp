@@ -1,12 +1,13 @@
-package com.adnanjelic.simpletvstreamingapp.moviedetails.ui.component
+package com.adnanjelic.simpletvstreamingapp.shared.ui.component
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import com.adnanjelic.simpletvstreamingapp.theme.Dimension
 
 @Composable
-internal fun DefaultSpacer() {
-    Spacer(modifier = Modifier.size(Dimension.Padding.Default))
+fun Spacer(size: Dp = Dimension.Padding.Default) {
+    Spacer(modifier = Modifier.size(size))
 }

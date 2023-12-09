@@ -6,7 +6,7 @@ import com.adnanjelic.simpletvstreamingapp.featurehome.ui.model.MovieUiModel
 internal val MovieStub1 = MovieUiModel(id = "1", title = "The Dark Knight", posterUrl = "")
 internal val MovieStub2 = MovieUiModel(id = "2", title = "The Shawshank Redemption", posterUrl = "")
 internal val MovieStub3 = MovieUiModel(id = "3", title = "The Godfather", posterUrl = "")
-internal val MovieStub4 = MovieUiModel(id = "4", title = "12 Angry Men\"", posterUrl = "")
+internal val MovieStub4 = MovieUiModel(id = "4", title = "12 Angry Men", posterUrl = "")
 
 private val movies = listOf(MovieStub1, MovieStub2, MovieStub3, MovieStub4)
 
