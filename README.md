@@ -30,6 +30,7 @@ The shared modules are exposed for all features to use them.
 2. `architecture`, `navigation` and `theme` modules are at a root level to be shared with all modules in the project
 
 ## Future plans
-1. Make the navigation and notification code more abstract, simpler and reusable among features
-2. Cover the rest of the code with Unit and UI tests.
-3. Add the app title to the launcher icon to make it easier to discover
+1. Fix the bug with the player controls lost focus (the player loses focus on subsequent invocation of the overlay). The hardware back button can be used as a workaround to go back and re-enter the screen.
+2. Make the navigation and notification code more abstract, simpler and reusable among features
+3. Cover the rest of the code with Unit and UI tests.
+4. Add the app title to the launcher icon to make it easier to discover
