@@ -25,9 +25,9 @@ fun VideoPlayerScreen(
 
     if (videoInfo != null) {
         VideoPlayer(
-            videoUrl = videoInfo.videoUrl,
-            onBackSelected = { viewModel.onNavigateBackSelected() }
-        )
+            videoPlayer = dependencies.videoPlayer,
+            videoUrl = videoInfo.videoUrl
+        ) { viewModel.onNavigateBackSelected() }
     }
 
     navigation.value?.let {

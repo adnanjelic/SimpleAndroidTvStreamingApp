@@ -10,7 +10,7 @@ Each feature is implemented in 5 layers with Dependency Inversion between dataso
 - `datasource` layer provides local (`Room`) or remote (stubbed API response in `HomeInfoRemoteSourceImpl` for now) data sources. Since the API layer is behind an interface, the real REST service could easily be added later on.
 - `data` layer holds the repositories and controls the data source flow. The data is provided from local source and if not found, updated from the remote service with `Flow`.
 - `domain` layer holds the business logic and entities (`UseCases` and Domain models), and is in the center of the architecture, so it does not depend on any other module but `architecture`. The `domain` layer also controls the thread switching (main -> async -> main).  
-- `presentation` layer is based on `ViewModel` (Android one to be lifecycle aware and easier DI).
+- `presentation` layer is based on `ViewModel` (Android one to be lifecycle aware and easier DI with Hilt).
 - `ui` layer is a pure `Compose` layer with `Compose Navigation` between features.
 - All layers have their own models and mappers to map them to/from other layers. 
 - Dependency Injection is provided by `Hilt`.
@@ -23,7 +23,7 @@ The idea is to have each feature as a separate set of modules (grouping feature 
 There are 3 features/screens modules:
 1. **Home** - Home screen with 6 category rows and 12 movies per category. Each movie has an unique id, but since the content is stubbed (there are 12 stubbed movies in the remote source), for faster implementation, they are shared among all categories (the movie order is randomized for each category).
 2. **Movie Details** - Shows the details of a selected movie with poster, title, duration, rating, description, button to initiate the playback, and a button to go to the previous screen.
-3. **Video Player** - Plays the video with progress info and standard controls. Additionally, there is a back button to go to the previous screen. It uses an external module player so it is easier to change in the future. 
+3. **Video Player** - Plays the video with progress info and standard controls. Additionally, there is a back button to go to the previous screen. It uses an interface for the player so it is easier to replace the implementation with another player in the future. 
 
 The shared modules are exposed for all features to use them.
 1. `shared` module contains specific `submodules` to be shared among features

@@ -64,6 +64,7 @@ dependencies {
     implementation(projects.navigation)
     implementation(projects.architecture.domain)
     implementation(projects.shared.storage)
+    implementation(projects.shared.videoPlayerExo)
     implementation(projects.featureHome.datasource)
     implementation(projects.featureHome.data)
     implementation(projects.featureHome.domain)

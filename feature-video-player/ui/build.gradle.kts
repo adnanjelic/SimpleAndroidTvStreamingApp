@@ -31,7 +31,6 @@ dependencies {
     implementation(projects.architecture.ui)
     implementation(projects.architecture.presentation)
     implementation(projects.shared.ui)
-    implementation(projects.shared.videoPlayerExo)
     implementation(projects.featureVideoPlayer.presentation)
 
     // DI
